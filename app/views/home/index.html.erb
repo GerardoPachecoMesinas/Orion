@@ -1,0 +1,107 @@
+<!-- header -->
+<%= render "shared/header"%>
+<!-- /header -->
+
+<!-- carousel -->
+<div id="carouselAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="d-block w-100" alt="..." style="background-color: rgba(0, 0, 0, 0.5) ;">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.doubleradius.com/SSP%20Applications/NetSuite%20Inc.%20-%20SCS/SuiteCommerce%20Standard/extensions/Folio3/Double_Radius_Theme/0.0.1/img/guides-resources/mounted-antenna-radio.jpg" class="d-block w-100"  alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://3.bp.blogspot.com/-34W0KGN47PY/V51SvO1aHEI/AAAAAAAACiw/F6hSpf3EImwhqMDvd87HlGhqFapUpu2cQCLcB/s1600/compliance-test-ubiquiti.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+
+  <div class="overlay">
+      <div class="row align-items-center ps-md-5">
+        <div class="col col-md-5 text-center text-md-start">
+          <h1><strong> <abbr data-bs-toggle="tooltip" title="Soluciones en Conectividad">Orión Networks</abbr></strong></h1>
+          <p class="d-none d-md-block">"Confiabilidad y Velocidad a tu alcance"</p>
+          <a href="#" class="btn btn-outline-light">
+            Nosotros
+          </a>
+          <button type="button" class="btn btn-contact" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Contáctanos
+          </button>
+        </div>
+      </div>
+  </div>
+
+</div>
+<!-- /carousel -->
+
+<!-- banner -->
+<div class="container">
+  <div class="row">
+    <div class="col text-center py-5" style="color: azure;">
+      <p>
+        conoce algunos de nuestros
+        <h2>servicios</h2>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- /banner -->
+
+<!-- services -->
+<div class="card mb-3 mx-3" style="background-color: #BBBBBB;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">Servicio Residencial</h4>
+        <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante, velocidad rápida y mayor confiabilidad en comparación con las redes compartidas, satisfaciendo altas necesidades de expansión de conectividad.</p>
+        <button type="button" class="btn btn-card" style="color: white;">Ver más</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mb-3 mx-3" style="background-color: #BBBBBB;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">Servicio Residencial</h4>
+        <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante, velocidad rápida y mayor confiabilidad en comparación con las redes compartidas, satisfaciendo altas necesidades de expansión de conectividad.</p>
+        <button type="button" class="btn btn-card" style="color: white;">Ver más</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mb-3 mx-3" style="background-color: #BBBBBB;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">Servicio Residencial</h4>
+        <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante, velocidad rápida y mayor confiabilidad en comparación con las redes compartidas, satisfaciendo altas necesidades de expansión de conectividad.</p>
+        <button type="button" class="btn btn-card" style="color: white;">Ver más</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /services -->
+<%= link_to "inicio", home_index_path %>
+<a href="/home/index">Inicio</a>
+
+
+<!-- footer -->
+<%= render "shared/footer"%>
+<!-- /footer -->

@@ -13,3 +13,72 @@
  *= require_tree .
  *= require_self
  */
+
+ .service {
+  color: beige;  
+ }
+
+ #header {
+  background-color: rgb(17, 17, 17);
+ }
+ /*#header .dropdown-menu {
+  background-color: #FF3E6D;
+ }
+
+ #header .dropdown-item  {
+  color: white;
+ }
+ #header .dropdown-item:hover  {
+  background-color: #84253E;
+ } */
+
+
+ #Logo_orion {
+  width: 60px;
+ }
+ #carouselAutoplaying {
+  position: relative;
+ }
+ #carouselAutoplaying .overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.5) ; 
+
+ }
+
+ #carouselAutoplaying .carousel-inner {
+  filter: grayscale(50%);
+	max-height: 70vh;
+	object-fit: cover;
+}
+
+#carouselAutoplaying .overlay .row{
+    height: 100%;
+}
+.overlay .btn-contact,
+.card .btn-card{
+  background-color: #ff3e51;
+  color: white;
+}
+
+.overlay .btn-contact:hover,
+.card .btn-card:hover {
+  background-color: #84253E;
+  color: white;
+}
+ 
+.vstack {
+  max-width: 30%;
+}
+
+ #footer{
+  background: linear-gradient(90deg,#431c1c,#472727 25%,#721e1e);
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
