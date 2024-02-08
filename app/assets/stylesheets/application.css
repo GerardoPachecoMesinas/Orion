@@ -12,34 +12,31 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
 
- .service {
-  color: beige;  
- }
-
- #header {
+#header {
   background-color: rgb(17, 17, 17);
- }
- /*#header .dropdown-menu {
+}
+/*#header .dropdown-menu {
   background-color: #FF3E6D;
- }
+}
 
- #header .dropdown-item  {
+#header .dropdown-item  {
   color: white;
- }
- #header .dropdown-item:hover  {
+}
+#header .dropdown-item:hover  {
   background-color: #84253E;
- } */
+} */
 
 
- #Logo_orion {
-  width: 60px;
- }
- #carouselAutoplaying {
+#Logo_orion {
+  width: 80px;
+}
+
+#carouselAutoplaying {
   position: relative;
- }
- #carouselAutoplaying .overlay {
+}
+#carouselAutoplaying .overlay {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -48,37 +45,67 @@
   right: 0;
   color: white;
   height:100%;
-  background-color: rgba(0, 0, 0, 0.5) ; 
-
- }
-
- #carouselAutoplaying .carousel-inner {
-  filter: grayscale(50%);
-	max-height: 70vh;
-	object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.3) ; 
 }
-
+#carouselAutoplaying .carousel-inner {
+  /* filter: grayscale(0%); */
+  max-height: 70vh;
+  object-fit: cover;
+}
 #carouselAutoplaying .overlay .row{
-    height: 100%;
+  height: 100%;
 }
+
 .overlay .btn-contact,
 .card .btn-card{
   background-color: #ff3e51;
   color: white;
 }
-
 .overlay .btn-contact:hover,
 .card .btn-card:hover {
   background-color: #84253E;
   color: white;
 }
- 
-.vstack {
-  max-width: 30%;
+
+#services,
+#services .service-button,
+#deco {
+  color: white;  
+}
+#residential,
+#bussines,
+#dedicated {
+  background-color: #bbbbbb;
 }
 
- #footer{
-  background: linear-gradient(90deg,#431c1c,#472727 25%,#721e1e);
+#deco-card {
+  background-image: url("https://media.licdn.com/dms/image/C4D1BAQFcL7Y_XIfP6g/company-background_10000/0/1583245425481/tp_link_netherlands_b_v_cover?e=2147483647&v=beta&t=vRapKUbvZs7WAO88OujKaNuRbMICBwz3FPdZICugdDw");
+  color: white;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+#deco #tp-logo {
+  height: 300px;
+}
+
+.ilimited-overlay{
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+#footer{
+  background: linear-gradient(90deg,#84253E,#84253E 25%,#721e1e);
   padding-bottom: 30px;
   padding-top: 30px;
 }
+
+@media (min-width: 768px) {
+  #ilimited .card-img-overlay{
+    font-size: x-large;
+  }
+}
+/* @media (min-width: 1400px) {
+  #ilimited .card-img-overlay{
+    font-size: xx-large;
+  }
+} */

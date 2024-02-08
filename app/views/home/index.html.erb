@@ -1,7 +1,3 @@
-<!-- header -->
-<%= render "shared/header"%>
-<!-- /header -->
-
 <!-- carousel -->
 <div id="carouselAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
@@ -9,17 +5,24 @@
     <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselAutoplaying" data-bs-slide-to="3" aria-label="Slide 4"></button>
   </div>
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="d-block w-100" alt="..." style="background-color: rgba(0, 0, 0, 0.5) ;">
+      <%= image_tag asset_path("site.jpg"), class: " w-100" %>
+      <!-- <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="d-block w-100" alt="..." style="background-color: rgba(0, 0, 0, 0.5) ;"> -->
     </div>
     <div class="carousel-item">
-      <img src="https://www.doubleradius.com/SSP%20Applications/NetSuite%20Inc.%20-%20SCS/SuiteCommerce%20Standard/extensions/Folio3/Double_Radius_Theme/0.0.1/img/guides-resources/mounted-antenna-radio.jpg" class="d-block w-100"  alt="...">
+      <%= image_tag asset_path("wisp2.webp"), class: "d-block w-100" %>
+      <!-- <img src="https://www.doubleradius.com/SSP%20Applications/NetSuite%20Inc.%20-%20SCS/SuiteCommerce%20Standard/extensions/Folio3/Double_Radius_Theme/0.0.1/img/guides-resources/mounted-antenna-radio.jpg" class="d-block w-100"  alt="..."> -->
     </div>
     <div class="carousel-item">
-      <img src="https://3.bp.blogspot.com/-34W0KGN47PY/V51SvO1aHEI/AAAAAAAACiw/F6hSpf3EImwhqMDvd87HlGhqFapUpu2cQCLcB/s1600/compliance-test-ubiquiti.jpg" class="d-block w-100" alt="...">
+      <%= image_tag asset_path("lite.jpg"), class: "d-block w-100" %>
+      <!-- <img src="https://3.bp.blogspot.com/-34W0KGN47PY/V51SvO1aHEI/AAAAAAAACiw/F6hSpf3EImwhqMDvd87HlGhqFapUpu2cQCLcB/s1600/compliance-test-ubiquiti.jpg" class="d-block w-100" alt="..."> -->
+    </div>
+    <div class="carousel-item">
+      <%= image_tag asset_path("nano.jpg"), class: "d-block w-100" %>
     </div>
   </div>
 
@@ -28,12 +31,12 @@
         <div class="col col-md-5 text-center text-md-start">
           <h1><strong> <abbr data-bs-toggle="tooltip" title="Soluciones en Conectividad">Orión Networks</abbr></strong></h1>
           <p class="d-none d-md-block">"Confiabilidad y Velocidad a tu alcance"</p>
-          <a href="#" class="btn btn-outline-light">
+          <a href="nosotros" class="btn btn-outline-light">
             Nosotros
           </a>
-          <button type="button" class="btn btn-contact" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="contáctanos" class="btn btn-contact">
             Contáctanos
-          </button>
+          </a>
         </div>
       </div>
   </div>
@@ -41,67 +44,106 @@
 </div>
 <!-- /carousel -->
 
-<!-- banner -->
-<div class="container">
+<!-- Ilimited -->
+
+<div class="card text-bg-dark pt-1" id="ilimited">
+  <%= image_tag asset_path("social-media-scaled2.jpg"), class: "card-img ilimited-img" %>
+<div class="">
+  <div class="card-img-overlay ps-md-5 pt-md-5 col-sm-8 ilimited-overlay">
+    <h5 class="card-title">Internet ILIMITADO</h5>
+    <p class="card-text text-fluid">Descarga contenido de manera ILIMITADA sin miedo a terminar tu bolsa de datos, ve las series que quieras durante el tiempo que quieras, solo un pago fijo mensual sin letras chiquitas.</p>
+  </div>
+</div>
+</div>
+
+<!-- /Ilimited -->
+
+<!-- deco -->
+<div class="container-fluid" id="deco">
   <div class="row">
-    <div class="col text-center py-5" style="color: azure;">
+    <div class="col text-center pt-5">
       <p>
-        conoce algunos de nuestros
-        <h2>servicios</h2>
+        <h2>Sistemas de wi-fi mesh</h2>
       </p>
     </div>
   </div>
+
+  <div id="deco-card" class="card mx-3">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card-body">
+          <h2>Haz que el internet de Orion networks llegue a cada rincón.</h2><br>
+          <ul>
+            <li> Fácil de instalar. </li>
+            <li> Evita que la señal disminuya por obstáculos como paredes y muebles grandes. </li>
+            <li> Administra tu red desde tu celular</li><br>
+            <li> Cómpralo aquí . </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-5 ">
+        <%= image_tag asset_path("deco.jpg"), class: "img-fluid rounded-end" %>
+        <!-- <img src="https://static.tp-link.com/upload/image-line/Deco_X60_03_large_20220804065708h.jpg" class="img-fluid rounded-end" alt="..."> -->
+      </div>
+    </div>
+  </div>
 </div>
-<!-- /banner -->
+<!-- /deco -->
 
 <!-- services -->
-<div class="card mb-3 mx-3" style="background-color: #BBBBBB;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+<div class="container-fluid" id="services">
+  <div class="row">
+    <div class="col text-center pt-5">
+      <p>
+        <h2>Conoce algunos de nuestros servicios</h2>
+      </p>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h4 class="card-title">Servicio Residencial</h4>
-        <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante, velocidad rápida y mayor confiabilidad en comparación con las redes compartidas, satisfaciendo altas necesidades de expansión de conectividad.</p>
-        <button type="button" class="btn btn-card" style="color: white;">Ver más</button>
+  </div>
+
+  <div id="residential" class="card mb-5 mx-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">Servicio Residencial</h4>
+          <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante.</p>
+          <a href="servicios" class="btn btn-card service-button">Ver más</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="card mb-3 mx-3" style="background-color: #BBBBBB;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h4 class="card-title">Servicio Residencial</h4>
-        <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante, velocidad rápida y mayor confiabilidad en comparación con las redes compartidas, satisfaciendo altas necesidades de expansión de conectividad.</p>
-        <button type="button" class="btn btn-card" style="color: white;">Ver más</button>
+  
+  <div id="bussines" class="card mb-5 mx-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">Servicio Empresarial</h4>
+          <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante.</p>
+          <a href="servicios" class="btn btn-card service-button">Ver más</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="card mb-3 mx-3" style="background-color: #BBBBBB;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h4 class="card-title">Servicio Residencial</h4>
-        <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante, velocidad rápida y mayor confiabilidad en comparación con las redes compartidas, satisfaciendo altas necesidades de expansión de conectividad.</p>
-        <button type="button" class="btn btn-card" style="color: white;">Ver más</button>
+  
+  <div id="dedicated" class="card mb-5 mx-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://i.pinimg.com/736x/97/c6/a3/97c6a3de26b205f6b6625b5802f2bafc.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">Servicio Dedicado</h4>
+          <p class="card-text">El Simétrico es una solución de conectividad de alta calidad diseñada para satisfacer las necesidades específicas de los proveedores de servicios de Internet y Empresas. Proporciona una conexión exclusiva y dedicada que garantiza un rendimiento constante.</p>
+          <a href="servicios" class="btn btn-card service-button">Ver más</a>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 <!-- /services -->
-<%= link_to "inicio", home_index_path %>
-<a href="/home/index">Inicio</a>
-
-
-<!-- footer -->
-<%= render "shared/footer"%>
-<!-- /footer -->

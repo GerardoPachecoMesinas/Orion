@@ -12,11 +12,8 @@ eagerLoadControllersFrom("controllers", application)
 
 
 
-//funcionalidad tooltip
+// funcionalidad tooltip
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-}
