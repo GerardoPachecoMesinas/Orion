@@ -12,23 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="inicio">Inicio</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Servicios
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/inicio#residential">Todos los servicios</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="servicios">Residenciales</a></li>
-            <li><a class="dropdown-item" href="servicios">Empresariales</a></li>
-            <li><a class="dropdown-item" href="servicios">Dedicado de alta capacidad</a></li>
-          </ul>
+        <li class="nav-item">
+          <%= link_to "Iniciar sesión", new_user_session_path, class: "navlink"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="preguntas_frecuentes">Preguntas Frecuentes</a>
+          <%= link_to "Registrarme", new_user_registration_path, class: "navlink"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="cont%C3%A1ctanos">Contáctanos</a>
+          <%= link_to "Editar autor", edit_autor_registration_path, class: "navlink"%>        </li>
+        <li class="nav-item">
+          <%= button_to "Cerrar sesión", destroy_autor_session_path, class: "navlink", method: :delete, data: { confirm: "Are you sure to delete?" }%>
         </li>
       </ul>
     </div>

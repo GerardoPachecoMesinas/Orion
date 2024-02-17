@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   get 'servicios', to: 'statics#services'
   get 'preguntas_frecuentes', to: 'statics#frequent_questions'
   get 'contáctanos', to: 'statics#contact'
   get 'nosotros', to: 'statics#about_us'
+
+  get 'users', to: 'home#users'
   get 'inicio', to: 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
