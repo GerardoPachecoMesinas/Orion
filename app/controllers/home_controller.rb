@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
-  def index
-  end
 
-  def users
+  def index
   end
 end
