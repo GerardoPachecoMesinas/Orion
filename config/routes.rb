@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  # get 'clients/new'
+  # get 'clients/index'
+  resources :clients
+
+  devise_for :users
+
   get 'servicios', to: 'statics#services'
   get 'preguntas_frecuentes', to: 'statics#frequent_questions'
   get 'contáctanos', to: 'statics#contact'
   get 'nosotros', to: 'statics#about_us'
+
   get 'inicio', to: 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
