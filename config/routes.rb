@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'usuarios', to: 'users#index'
+  # get 'clients/new'
+  # get 'clients/index'
+  resources :clients
+
   devise_for :users
 
   get 'servicios', to: 'statics#services'
