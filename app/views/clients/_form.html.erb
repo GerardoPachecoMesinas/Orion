@@ -1,0 +1,60 @@
+  <%= form_for @client do |f| %>
+    <% if @client.errors.any? %>
+      <div style="color: red">
+        <h2> Se han producido los siguientes errores: </h2>
+        <ul>
+          <% @client.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row justify-content-center">
+      <div class="field mb-3 col-4">
+        <%= f.label :Nombre, class: "form-label" %><br />
+        <%= f.text_field :Nombre, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="field mb-3 col-4">
+        <%= f.label :Fecha_de_pago, class: "form-label" %><br />
+        <%= f.date_field :Fecha_de_pago, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="field mb-3 col-4">
+        <%= f.label :Fecha_de_corte, class: "form-label" %><br />
+        <%= f.date_field :Fecha_de_corte, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="field mb-3 col-4 form-check">
+        <%= f.check_box :Activo, class: "form-check-input" %>
+        <%= f.label :Activo, class: "form-check-label" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="field mb-3 col-4">
+        <%= f.label :Teléfono, class: "form-label" %><br />
+        <%= f.text_field :Teléfono, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="field mb-3 col-4">
+        <%= f.label :Localidad, class: "form-label" %><br />
+        <%= f.text_field :Localidad, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class=" col-4">
+        <button type="submit" class="btn btn-primary">submit</button>
+      </div>
+    </div>
+  <% end %>
+</div>
