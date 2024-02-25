@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for orion-networks on 2024-02-18T17:12:10-06:00
+# fly.toml app configuration file generated for orion-app on 2024-02-25T15:33:40-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'orion-networks'
+app = 'orion-app'
 primary_region = 'phx'
 console_command = '/rails/bin/rails console'
 
