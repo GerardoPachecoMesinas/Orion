@@ -45,7 +45,7 @@ class ClientsController < ApplicationController
   private
 
     def client_params
-      params.require(:client).permit(:Nombre, :Fecha_de_pago, :Fecha_de_corte, :Activo, :Teléfono, :Localidad)
+      params.require(:client).permit(:name, :active, :phone, :location)
     end
 
     def set_client

@@ -11,8 +11,6 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Fecha de Pago</th>
-      <th scope="col">Fecha de Corte</th>
       <th scope="col">Status</th>
       <th scope="col">Teléfono</th>
       <th scope="col">Localidad</th>
@@ -23,12 +21,10 @@
     <% @clients.each do |client| %>
       <tr>
         <th scope="row"> <%= client.id %><br></th>
-        <td><%= link_to client.Nombre, client %></td>
-        <td><%= client.Fecha_de_pago %></td>
-        <td><%= client.Fecha_de_corte %></td>
-        <td><%= client.Activo ? "Activo" : "Inactivo" %></td>
-        <td><%= client.Teléfono %></td>
-        <td><%= client.Localidad %></td>
+        <td><%= link_to client.name, client %></td>
+        <td><%= client.active ? "Activo" : "Inactivo" %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.location %></td>
         <td> <%= link_to "Editar", edit_client_path(client) %>
         <%= button_to "Eliminar", client, method: :delete, data: {confirm: "seguro que quieres eliminar este cliente?" } %>
         </td>

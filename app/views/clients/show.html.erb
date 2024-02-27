@@ -1,12 +1,10 @@
 <div class= "container">
   <div class="row">
     <div class="col-4">
-        <h2><%= @client.Nombre%></h2><br>
-      <p> Fecha de pago : <%= @client.Fecha_de_pago %> </p>
-      <p> Fecha de pago : <%= @client.Fecha_de_corte %> </p>
-      <p> Status : <%= @client.Activo ? "Activo" : "Inactivo" %> </p>
-      <p> Teléfono : <%= @client.Teléfono %> </p>
-      <p> Localidad : <%= @client.Localidad %> </p>
+        <h2><%= @client.name%></h2><br>
+      <p> Status : <%= @client.active ? "Activo" : "Inactivo" %> </p>
+      <p> Teléfono : <%= @client.phone %> </p>
+      <p> Localidad : <%= @client.location %> </p>
     </div>
     <div class="col-8 text-end ">
       <br><p><%= link_to "Listado de clientes", clients_path %> </p><br>

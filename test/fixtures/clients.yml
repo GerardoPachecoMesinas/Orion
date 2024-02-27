@@ -1,17 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Nombre: MyString
-  Fecha_de_pago: 2024-02-21
-  Fecha_de_corte: 2024-02-21
-  Activo: false
-  Teléfono: MyString
-  Localidad: MyString
+  name: MyString
+  active: false
+  phone: MyString
+  location: MyString
 
 two:
-  Nombre: MyString
-  Fecha_de_pago: 2024-02-21
-  Fecha_de_corte: 2024-02-21
-  Activo: false
-  Teléfono: MyString
-  Localidad: MyString
+  name: MyString
+  active: false
+  phone: MyString
+  location: MyString
