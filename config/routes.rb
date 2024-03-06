@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'services/index'
+  # get 'services/new'
+  resources :services
+
   # get 'clients/new'
   # get 'clients/index'
   resources :clients
