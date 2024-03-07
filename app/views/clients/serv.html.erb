@@ -1,0 +1,40 @@
+<div class= "container-fluid ms-3">
+  <div class="row mb-3">
+    <div class="col-4">
+        <h2>Listado de Servicios</h2>
+    </div>
+  </div>
+</div>
+
+<table class="table table-secondary table-hover table-responsive table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">F_inicio</th>
+      <th scope="col">F_corte</th>
+      <th scope="col">F_límite</th>
+      <th scope="col">Costo</th>
+      <th scope="col">F_pago</th>
+      <th scope="col">Anotaciones</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <th scope="row"> <%= service.id %></th>
+        <td><%= service.name %></td>
+        <td><%= service.started_at %></td>
+        <td><%= service.finished_at %></td>
+        <td><%= service.disconnected_at %></td>
+        <td><%= service.price %></td>
+        <td><%= service.paid_at %></td>
+        <td><%= service.notes %></td>
+        <td> <%# link_to "Editar", edit_client_path(client) %>
+        <%# button_to "Eliminar", client, method: :delete, data: {confirm: "seguro que quieres eliminar este cliente?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -12,6 +12,10 @@ class ClientsController < ApplicationController
     @clients = Client.all.order("created_at DESC")
   end
 
+  def serv 
+    @services = Service.all
+  end  
+
   def new
     @client = Client.new
   end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # get 'clients/new'
   # get 'clients/index'
+  get 'clients/serv'
   resources :clients do
     resources :services
   end
