@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
   layout 'devise'
 
   def show
+    @services = @client.services
   end
 
   def index
@@ -12,7 +13,8 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    @client = Client.find(params[:client_id])
+    @service = @client.services.build
   end
 
   def create
