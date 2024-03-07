@@ -13,8 +13,7 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.find(params[:client_id])
-    @service = @client.services.build
+    @client = Client.new
   end
 
   def create
@@ -53,5 +52,4 @@ class ClientsController < ApplicationController
     def set_client
       @client = Client.find(params[:id])
     end
-    
 end
