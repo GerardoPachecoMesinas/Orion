@@ -5,11 +5,16 @@ class ClientsController < ApplicationController
   layout 'devise'
 
   def show
+    @services = @client.services
   end
 
   def index
     @clients = Client.all.order("created_at DESC")
   end
+
+  def serv 
+    @services = Service.all
+  end  
 
   def new
     @client = Client.new
@@ -51,5 +56,4 @@ class ClientsController < ApplicationController
     def set_client
       @client = Client.find(params[:id])
     end
-    
 end

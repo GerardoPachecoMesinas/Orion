@@ -7,9 +7,38 @@
       <p> Localidad : <%= @client.location %> </p>
     </div>
     <div class="col-8 text-end ">
-      <br><p><%= link_to "Listado de clientes", clients_path %> </p><br>
       <p><%= link_to "Editar cliente", edit_client_path(@client) %> </p><br>
       <p><%= button_to "Eliminar cliente", @client, method: :delete, data: {confirm: "seguro que quieres eliminar el articulo?"} %> </p>
     </div>
   </div>
+</div>
+<div class= "container">
+  <div class= "row my-5">
+    <div class= "col-6 text-end">
+      <h2>Servicios</h2> 
+    </div>
+    <div class= "col-6 ">
+      <%= link_to "Nuevo servicio", new_client_service_path(@client, @service) %>
+    </div>
+  </div>
+</div>
+
+<div class= "container">
+  <% @services.each do |service| %>
+  <div class="row">
+    <div class="col-4">
+        <h2><%= service.name %> </h2><br>
+      <p> Fecha de inicio: <%= service.started_at %>  </p>
+      <p> Fecha de corte : <%= service.finished_at %> </p>
+      <p> Fecha límite de pago : <%= service.disconnected_at %> </p>
+      <p> costo : <%= service.price %> </p>
+      <p> Pagado el día : <%= service.paid_at %> </p>
+      <p> Anotaciones : <%= service.notes %> </p>
+    </div>
+    <div class="col-8 text-end ">
+      <p><%= link_to "Editar servicio", edit_client_service_path(@client, service) %> </p><br>
+      <p><%= button_to "Eliminar servicio", ([@client, service]), method: :delete, data: {confirm: "seguro que quieres eliminar el servicio?"} %> </p>
+    </div>
+  </div>
+  <% end %>
 </div>

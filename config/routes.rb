@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  # get 'services/index'
+  # get 'services/new'
+
   # get 'clients/new'
   # get 'clients/index'
-  resources :clients
+  get 'clients/serv'
+  resources :clients do
+    resources :services
+  end
 
   devise_for :users
 
