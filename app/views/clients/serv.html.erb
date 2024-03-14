@@ -11,11 +11,11 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">F_inicio</th>
-      <th scope="col">F_corte</th>
-      <th scope="col">F_límite</th>
+      <th scope="col">Fecha_inicio</th>
+      <th scope="col">Fecha_corte</th>
+      <th scope="col">Fecha_límite</th>
       <th scope="col">Costo</th>
-      <th scope="col">F_pago</th>
+      <th scope="col">Fecha_pago</th>
       <th scope="col">Anotaciones</th>
       <th scope="col">Acciones</th>
     </tr>
@@ -31,8 +31,8 @@
         <td><%= service.price %></td>
         <td><%= service.paid_at %></td>
         <td><%= service.notes %></td>
-        <td> <%# link_to "Editar", edit_client_path(client) %>
-        <%# button_to "Eliminar", client, method: :delete, data: {confirm: "seguro que quieres eliminar este cliente?" } %>
+        <td><%# link_to "ver servicio", edit_client_path(client) %>
+            <%= link_to @clients.find(service.client_id).name, client_path(service.client_id), class: "link-dark"  %>
         </td>
       </tr>
     <% end %>

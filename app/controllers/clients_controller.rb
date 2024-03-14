@@ -13,6 +13,7 @@ class ClientsController < ApplicationController
   end
 
   def serv 
+    @clients = Client.all
     @services = Service.all
   end  
 
