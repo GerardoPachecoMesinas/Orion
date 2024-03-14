@@ -1,44 +1,55 @@
 <div class= "container">
-  <div class="row">
-    <div class="col-4">
-        <h2><%= @client.name%></h2><br>
-      <p> Status : <%= @client.active ? "Activo" : "Inactivo" %> </p>
-      <p> Teléfono : <%= @client.phone %> </p>
-      <p> Localidad : <%= @client.location %> </p>
+  <div class= "row my-5">
+    <div class= "col-6 ">
+      <h2>Cliente</h2> 
     </div>
-    <div class="col-8 text-end ">
-      <p><%= link_to "Editar cliente", edit_client_path(@client) %> </p><br>
-      <p><%= button_to "Eliminar cliente", @client, method: :delete, data: {confirm: "seguro que quieres eliminar el articulo?"} %> </p>
-    </div>
+    <div class= "col-6 text-end">
+      <%= button_to "Eliminar cliente", @client, class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar el articulo?"} %>    </div>
   </div>
 </div>
-<div class= "container">
-  <div class= "row my-5">
-    <div class= "col-6 text-end">
-      <h2>Servicios</h2> 
+
+<div class="card container bg-black text-secondary mb-5">
+  <h3 class="card-header"><%= @client.name%></h3>
+  <div class="card-body row">
+    <p class="card-text">Status : <strong><%= @client.active ? "Activo" : "Inactivo" %></strong></p>
+    <p class="card-text">Teléfono : <strong><%= @client.phone %></strong></p>
+    <p class="card-text">Localidad : <strong><%= @client.location %></strong></p>
+    <div class="col-6">
+      <%= link_to "Editar cliente", edit_client_path(@client), class: "btn btn-outline-secondary" %>
     </div>
-    <div class= "col-6 ">
-      <%= link_to "Nuevo servicio", new_client_service_path(@client, @service) %>
+    <div class="col-6 text-end">
+      
     </div>
   </div>
 </div>
 
 <div class= "container">
-  <% @services.each do |service| %>
-  <div class="row">
-    <div class="col-4">
-        <h2><%= service.name %> </h2><br>
-      <p> Fecha de inicio: <%= service.started_at %>  </p>
-      <p> Fecha de corte : <%= service.finished_at %> </p>
-      <p> Fecha límite de pago : <%= service.disconnected_at %> </p>
-      <p> costo : <%= service.price %> </p>
-      <p> Pagado el día : <%= service.paid_at %> </p>
-      <p> Anotaciones : <%= service.notes %> </p>
+  <div class= "row my-5">
+    <div class= "col-6 ">
+      <h2>Servicios</h2> 
     </div>
-    <div class="col-8 text-end ">
-      <p><%= link_to "Editar servicio", edit_client_service_path(@client, service) %> </p><br>
-      <p><%= button_to "Eliminar servicio", ([@client, service]), method: :delete, data: {confirm: "seguro que quieres eliminar el servicio?"} %> </p>
+    <div class= "col-6 text-end">
+      <%= link_to "Nuevo servicio", new_client_service_path(@client, @service), class: "btn btn-outline-light" %>
     </div>
   </div>
-  <% end %>
 </div>
+
+<% @services.each do |service| %>
+  <div class="card container bg-black text-secondary mb-5">
+    <h3 class="card-header"><%= service.name %></h3>
+    <div class="card-body row">
+      <p class="card-text">Fecha de inicio: <strong><%= service.started_at %></strong></p>
+      <p class="card-text">Fecha de corte : <strong><%= service.finished_at %></strong></p>
+      <p class="card-text">Fecha límite de pago : <strong><%= service.disconnected_at %></strong></p>
+      <p class="card-text">Costo : <strong><%= service.price %></strong></p>
+      <p class="card-text">Pagado el día : <strong><%= service.paid_at %></strong></p>
+      <p class="card-text">Anotaciones : <strong><%= service.notes %> </strong></p>
+      <div class="col-6">
+        <%= link_to "Editar servicio", edit_client_service_path(@client, service), class: "btn btn-outline-light" %>
+      </div>
+      <div class="col-6 text-end">
+        <%= button_to "Eliminar servicio", ([@client, service]), class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar el servicio?"} %>
+      </div>
+    </div>
+  </div>
+<% end %>
