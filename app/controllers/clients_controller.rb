@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
 
   def show
     @services = @client.services
+    @tickets = @client.tickets
   end
 
   def index

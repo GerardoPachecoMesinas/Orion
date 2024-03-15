@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :tickets
   # get 'services/index'
   # get 'services/new'
 
@@ -8,7 +7,8 @@ Rails.application.routes.draw do
   get 'clients/serv'
   resources :clients do
     resources :services
-  end
+    resources :tickets
+end
 
   devise_for :users
 
