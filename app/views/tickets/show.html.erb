@@ -1,10 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @ticket %>
 
 <div>
-  <%= link_to "Edit this ticket", edit_ticket_path(@ticket) %> |
-  <%= link_to "Back to tickets", tickets_path %>
-
-  <%= button_to "Destroy this ticket", @ticket, method: :delete %>
+  <%= link_to "Edit this Ticket", edit_client_ticket_path(@client, @ticket) %> |
+  <%= link_to "Back to Client", client_path(@client) %>
+  <%= button_to "Eliminar Ticket", ([@client, @ticket]), class: "btn btn-outline-danger", method: :delete %>
 </div>
