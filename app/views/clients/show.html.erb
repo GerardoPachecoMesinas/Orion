@@ -53,3 +53,30 @@
     </div>
   </div>
 <% end %>
+
+<div class= "container">
+  <div class= "row my-5">
+    <div class= "col-6 ">
+      <h2>Tickets</h2> 
+    </div>
+    <div class= "col-6 text-end">
+      <%= link_to "Nuevo Ticket", new_client_ticket_path(@client), class: "btn btn-outline-light" %>
+    </div>
+  </div>
+</div>
+
+<% @tickets.each do |ticket| %>
+  <div class="card container bg-black text-secondary mb-5">
+    <h3 class="card-header"><%= ticket.status %></h3>
+    <div class="card-body row">
+      <p class="card-text">Nivel de Prioridad: <strong><%= ticket.priority_level %></strong></p>
+      <p class="card-text">Descripción: <strong><%= ticket.description %></strong></p>
+      <div class="col-6">
+        <%= link_to "Editar ticket", edit_client_ticket_path(@client, ticket), class: "btn btn-outline-light" %>
+      </div>
+      <div class="col-6 text-end">
+        <%= button_to "Eliminar ticket", ([@client, ticket]), class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar el servicio?"} %>
+      </div>
+    </div>
+  </div>
+<% end %>
