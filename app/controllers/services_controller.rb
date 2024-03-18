@@ -1,11 +1,11 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user! 
   before_action :set_client
+  before_action :set_service, only: %i[ show edit update destroy ]
   
   layout 'devise'
 
   def show
-    @service = @client.services.find(params[:id])
   end
 
   def new
@@ -22,11 +22,9 @@ class ServicesController < ApplicationController
   end
 
   def edit
-    @service = @client.services.find(params[:id])
   end
 
   def update
-    @service = @client.services.find(params[:id])
     if @service.update(service_params)
       redirect_to @client, :notice => "Servicio modificado correctamente"
     else
@@ -35,7 +33,6 @@ class ServicesController < ApplicationController
   end
 
   def destroy
-    @service = @client.services.find(params[:id])
     @service.destroy!
     redirect_to @client, :notice => "Servicio eliminado correctamente"
   end
@@ -44,6 +41,10 @@ class ServicesController < ApplicationController
 
   def set_client
     @client = Client.find(params[:client_id])
+  end
+
+  def set_service
+    @service = @client.services.find(params[:id])
   end
 
   def service_params

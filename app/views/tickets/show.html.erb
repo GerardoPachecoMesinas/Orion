@@ -1,0 +1,7 @@
+<%= render @ticket %>
+
+<div>
+  <%= link_to "Edit this Ticket", edit_client_ticket_path(@client, @ticket) %> |
+  <%= link_to "Back to Client", client_path(@client) %>
+  <%= button_to "Eliminar Ticket", ([@client, @ticket]), class: "btn btn-outline-danger", method: :delete %>
+</div>
