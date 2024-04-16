@@ -1,9 +1,13 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user! 
-  before_action :set_client
+  before_action :set_client, except: :index
   before_action :set_service, only: %i[ show edit update destroy ]
   
   layout 'devise'
+
+  def index
+    @services = Service.all
+  end
 
   def show
   end

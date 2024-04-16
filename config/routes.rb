@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   # get 'clients/index'
   get 'clients/serv'
   resources :clients do
-    resources :services
+    resources :services, except: [:index]
     resources :tickets
-end
+  end
+  get 'services', to: 'services#index'
 
-  devise_for :users
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   get 'servicios', to: 'statics#services'
   get 'preguntas_frecuentes', to: 'statics#frequent_questions'
