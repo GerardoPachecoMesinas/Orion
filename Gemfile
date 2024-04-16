@@ -25,6 +25,15 @@ gem "jbuilder"
 
 gem 'devise', '~> 4.9', '>= 4.9.3'
 
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+gem 'sassc'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

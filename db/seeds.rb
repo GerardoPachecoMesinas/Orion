@@ -12,3 +12,4 @@ User.create( email:"user1@test", password:"usuario1", password_confirmation:"usu
 User.create( email:"user2@test", password:"usuario2", password_confirmation:"usuario2" )
 User.create( email:"user3@test", password:"usuario3", password_confirmation:"usuario3" )
 User.create( email:"user4@test", password:"usuario4", password_confirmation:"usuario4" )
+User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
