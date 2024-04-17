@@ -32,7 +32,7 @@
         <td><%= service.paid_at %></td>
         <td><%= service.notes %></td>
         <td><%# link_to "ver servicio", edit_client_path(client) %>
-            <%= link_to @clients.find(service.client_id).name, client_path(service.client_id), class: "link-dark"  %>
+            <%= link_to service.client.name, client_path(service.client_id), class: "link-dark"  %>
         </td>
       </tr>
     <% end %>

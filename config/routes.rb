@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   # get 'clients/index'
   get 'clients/serv'
   resources :clients do
-    resources :services
+    resources :services, exept: :index
     resources :tickets
-end
+  end
+  get 'services', to: 'services#index'
 
   devise_for :users
 
