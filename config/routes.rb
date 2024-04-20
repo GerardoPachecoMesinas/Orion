@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/monthly_income_report'
   # get 'services/index'
   # get 'services/new'
 

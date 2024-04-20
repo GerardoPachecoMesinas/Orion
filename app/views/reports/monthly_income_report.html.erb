@@ -1,0 +1,27 @@
+
+<table class="table table-secondary table-hover table-responsive table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Servicio</th>
+      <th scope="col">Fecha de pago</th>
+      <th scope="col">Costo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @paid_services.each do |service| %>
+    <tr>
+      <th scope="row"><%= service.client.id %></th>
+      <td><%= service.client.name %></td>
+      <td><%= service.name %></td>
+      <td><%= service.paid_at %></td>
+      <td><%= service.price %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <th scope="row" colspan="4" class="text-end">TOTAL GENERAL DEL MES</th>
+      <th scope="row"><%= @total_income %></th>
+    </tr>
+  </tbody>
+</table>
