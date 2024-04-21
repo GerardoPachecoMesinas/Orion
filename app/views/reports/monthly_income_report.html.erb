@@ -11,13 +11,13 @@
   </thead>
   <tbody>
     <% @paid_services.each do |service| %>
-    <tr>
-      <th scope="row"><%= service.client.id %></th>
-      <td><%= service.client.name %></td>
-      <td><%= service.name %></td>
-      <td><%= service.paid_at %></td>
-      <td><%= service.price %></td>
-    </tr>
+      <tr>
+        <th scope="row"><%= service.client.id %></th>
+        <td><%= service.client.name %></td>
+        <td><%= service.name %></td>
+        <td><%= service.paid_at %></td>
+        <td><%= service.price %></td>
+      </tr>
     <% end %>
     <tr>
       <th scope="row" colspan="4" class="text-end">TOTAL GENERAL DEL MES</th>
