@@ -7,5 +7,4 @@ class ReportsController < ApplicationController
     @paid_services = Service.where(paid_at: start_date..end_date)
     @total_income = @paid_services.sum(:price)
   end
-  
 end
