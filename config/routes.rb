@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get 'clients/index'
   get 'clients/serv'
   resources :clients do
-    resources :services, exept: :index
+    resources :services, except: :index
     resources :tickets
   end
   get 'services', to: 'services#index'
