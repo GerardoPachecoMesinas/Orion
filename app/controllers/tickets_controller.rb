@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_client
   before_action :set_ticket, only: %i[ show edit update destroy ]
 
-  layout 'users'
+  layout 'devise'
 
   def show
   end
