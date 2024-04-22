@@ -1,23 +1,25 @@
 Rails.application.routes.draw do
-  # get 'services/index'
-  # get 'services/new'
+  get "reports/monthly_income_report"
+  # get "services/index"
+  # get "services/new"
 
-  # get 'clients/new'
-  # get 'clients/index'
-  get 'clients/serv'
+  # get "clients/new"
+  # get "clients/index"
+  get "clients/serv"
   resources :clients do
-    resources :services
+    resources :services, except: :index
     resources :tickets
-end
+  end
+  get "services", to: "services#index"
 
   devise_for :users
 
-  get 'servicios', to: 'statics#services'
-  get 'preguntas_frecuentes', to: 'statics#frequent_questions'
-  get 'contáctanos', to: 'statics#contact'
-  get 'nosotros', to: 'statics#about_us'
+  get "servicios", to: "statics#services"
+  get "preguntas_frecuentes", to: "statics#frequent_questions"
+  get "contáctanos", to: "statics#contact"
+  get "nosotros", to: "statics#about_us"
 
-  get 'inicio', to: 'home#index'
+  get "inicio", to: "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
