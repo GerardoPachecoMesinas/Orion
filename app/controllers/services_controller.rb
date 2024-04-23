@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   before_action :set_client, except: :index
   before_action :set_service, only: %i[ show edit update destroy ]
 
-  layout "users"
+  layout "landing_page"
 
   def show
   end

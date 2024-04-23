@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  layout "users"
+  layout "landing_page"
 
   def monthly_income_report
     start_date = DateTime.current.beginning_of_month
