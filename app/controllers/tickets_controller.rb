@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_client
   before_action :set_ticket, only: %i[ show edit update destroy ]
 
-  layout 'devise'
+  layout "users"
 
   def show
   end
@@ -22,7 +22,10 @@ class TicketsController < ApplicationController
     @ticket = @client.tickets.build(ticket_params)
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to client_ticket_path(@client, @ticket), notice: "Ticket was successfully created." }
+        format.html {
+          redirect_to client_ticket_path(@client, @ticket),
+          notice: "Ticket was successfully created."
+        }
         format.json { render :show, status: :created, location: [@client, @ticket] }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,7 +38,10 @@ class TicketsController < ApplicationController
   def update
     respond_to do |format|
       if @ticket.update(ticket_params)
-        format.html { redirect_to client_ticket_path([@client, @ticket]), notice: "Ticket was successfully updated." }
+        format.html {
+          redirect_to client_ticket_path([@client, @ticket]),
+          notice: "Ticket was successfully updated."
+        }
         format.json { render :show, status: :ok, location: [@client, @ticket] }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,6 +72,8 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.require(:ticket).permit(:created_at, :status, :priority_level, :description, :client_id)
+      params.require(:ticket).permit(
+        :created_at, :status, :priority_level, :description, :client_id
+      )
     end
 end

@@ -1,8 +1,8 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   before_action :set_client, only: %i[show edit update destroy]
 
-  layout 'devise'
+  layout "users"
 
   def show
     @services = @client.services

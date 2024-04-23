@@ -1,16 +1,16 @@
 class ServicesController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   before_action :set_client, except: :index
   before_action :set_service, only: %i[ show edit update destroy ]
-  
-  layout 'devise'
+
+  layout "users"
 
   def show
   end
 
-  def index 
+  def index
     @services = Service.all
-  end  
+  end
 
   def new
     @service = @client.services.build
@@ -52,6 +52,9 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:name, :started_at, :finished_at, :disconnected_at, :price, :paid_at, :notes, :client_id)
+    params.require(:service).permit(
+      :name, :started_at, :finished_at,
+      :disconnected_at, :price, :paid_at, :notes, :client_id
+    )
   end
 end
