@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   layout "landing_page"
 
   def show
-    @services = @client.services
+    @invoices = @client.invoices
     @tickets = @client.tickets
   end
 
