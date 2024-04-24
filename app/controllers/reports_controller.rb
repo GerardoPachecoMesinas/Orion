@@ -1,6 +1,5 @@
 class ReportsController < ApplicationController
-  layout 'devise'
-  
+
   def monthly_income_report
     start_date = DateTime.current.beginning_of_month
     end_date = DateTime.current.end_of_month

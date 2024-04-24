@@ -1,8 +1,6 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   before_action :set_client, only: %i[show edit update destroy]
-
-  layout 'devise'
 
   def show
     @services = @client.services
@@ -46,11 +44,11 @@ class ClientsController < ApplicationController
 
   private
 
-    def client_params
-      params.require(:client).permit(:name, :active, :phone, :location)
-    end
+  def client_params
+    params.require(:client).permit(:name, :active, :phone, :location)
+  end
 
-    def set_client
-      @client = Client.find(params[:id])
-    end
+  def set_client
+    @client = Client.find(params[:id])
+  end
 end
