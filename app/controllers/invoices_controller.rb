@@ -16,6 +16,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = @client.invoices.build(invoice_params)
+
     if @invoice.save
       redirect_to @client
     else
