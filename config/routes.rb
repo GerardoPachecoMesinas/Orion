@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   get "reports/monthly_income_report"
-  # get "invoices/index"
-  # get "invoices/new"
 
-  # get "clients/new"
-  # get "clients/index"
   get "clients/serv"
   resources :clients do
     resources :invoices, except: :index

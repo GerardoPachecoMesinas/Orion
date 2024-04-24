@@ -45,7 +45,8 @@
         <%= link_to "Editar servicio", edit_client_invoice_path(@client, invoice), class: "btn btn-outline-light" %>
       </div>
       <div class="col-6 text-end">
-        <%= button_to "Eliminar servicio", ([@client, invoice]), class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar el servicio?"} %>
+        <%= button_to "Eliminar servicio", ([@client, invoice]), class: "btn btn-outline-danger",
+        method: :delete, data: { confirm: "seguro que quieres eliminar el servicio?" } %>
       </div>
     </div>
   </div>
@@ -72,7 +73,8 @@
         <%= link_to "Editar ticket", edit_client_ticket_path(@client, ticket), class: "btn btn-outline-light" %>
       </div>
       <div class="col-6 text-end">
-        <%= button_to "Eliminar ticket", ([@client, ticket]), class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar el servicio?"} %>
+        <%= button_to "Eliminar ticket", ([@client, ticket]), class: "btn btn-outline-danger",
+        method: :delete, data: { confirm: "seguro que quieres eliminar el servicio?" } %>
       </div>
     </div>
   </div>
