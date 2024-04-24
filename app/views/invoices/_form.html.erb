@@ -1,6 +1,6 @@
   <%= form_for([@client, @invoice]) do |f| %>
     <% if @invoice.errors.any? %>
-      <div style="color: red">
+      <div class="text-danger">
         <h2> Se han producido los siguientes errores: </h2>
         <ul>
           <% @invoice.errors.each do |error| %>
