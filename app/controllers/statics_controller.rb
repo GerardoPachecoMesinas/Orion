@@ -1,5 +1,7 @@
 class StaticsController < ApplicationController
 
+  layout "static_views"
+
   def services
   end
 

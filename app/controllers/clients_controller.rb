@@ -2,8 +2,6 @@ class ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: %i[show edit update destroy]
 
-  layout "landing_page"
-
   def show
     @services = @client.services
     @tickets = @client.tickets
