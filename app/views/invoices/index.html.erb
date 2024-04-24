@@ -25,18 +25,18 @@
     </tr>
   </thead>
   <tbody>
-    <% @services.each do |service| %>
+    <% @invoices.each do |invoice| %>
       <tr>
-        <th scope="row"> <%= service.id %></th>
-        <td><%= service.name %></td>
-        <td><%= service.started_at %></td>
-        <td><%= service.finished_at %></td>
-        <td><%= service.disconnected_at %></td>
-        <td><%= service.price %></td>
-        <td><%= service.paid_at %></td>
-        <td><%= service.notes %></td>
+        <th scope="row"> <%= invoice.id %></th>
+        <td><%= invoice.name %></td>
+        <td><%= invoice.started_at %></td>
+        <td><%= invoice.finished_at %></td>
+        <td><%= invoice.disconnected_at %></td>
+        <td><%= invoice.price %></td>
+        <td><%= invoice.paid_at %></td>
+        <td><%= invoice.notes %></td>
         <td><%# link_to "ver servicio", edit_client_path(client) %>
-            <%= link_to service.client.name, client_path(service.client_id), class: "link-dark"  %>
+            <%= link_to invoice.client.name, client_path(invoice.client_id), class: "link-dark"  %>
         </td>
       </tr>
     <% end %>

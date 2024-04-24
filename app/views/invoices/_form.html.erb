@@ -1,9 +1,9 @@
-  <%= form_for([@client, @service]) do |f| %>
-    <% if @service.errors.any? %>
+  <%= form_for([@client, @invoice]) do |f| %>
+    <% if @invoice.errors.any? %>
       <div style="color: red">
         <h2> Se han producido los siguientes errores: </h2>
         <ul>
-          <% @service.errors.each do |error| %>
+          <% @invoice.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
