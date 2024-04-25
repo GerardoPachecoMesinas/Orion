@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_action :set_client, only: %i[show edit update destroy]
 
   def show
-    @services = @client.services
+    @invoices = @client.invoices
     @tickets = @client.tickets
   end
 

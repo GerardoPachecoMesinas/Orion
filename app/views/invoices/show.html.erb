@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+        <h2><%= @invoice.name%></h2><br>
+      <p>Fecha de inicio : <%= @invoice.started_at %></p>
+      <p>Fecha de corte : <%= @invoice.finished_at %></p>
+      <p>Fecha límite de pago : <%= @invoice.disconnected_at %></p>
+      <p>Costo del servicio : <%= @invoice.price %></p>
+      <p>Pagadoel día : <%= @invoice.paid_at %></p>
+      <p>Anotaciones : <%= @invoice.notes %></p>
+    </div>
+  </div>
+</div>

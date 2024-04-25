@@ -10,13 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @paid_services.each do |service| %>
+    <% @paid_invoices.each do |invoice| %>
       <tr>
-        <th scope="row"><%= service.client.id %></th>
-        <td><%= service.client.name %></td>
-        <td><%= service.name %></td>
-        <td><%= service.paid_at %></td>
-        <td><%= service.price %></td>
+        <th scope="row"><%= invoice.client.id %></th>
+        <td><%= invoice.client.name %></td>
+        <td><%= invoice.name %></td>
+        <td><%= invoice.paid_at %></td>
+        <td><%= invoice.price %></td>
       </tr>
     <% end %>
     <tr>
