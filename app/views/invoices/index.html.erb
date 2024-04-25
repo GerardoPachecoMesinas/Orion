@@ -35,9 +35,7 @@
         <td><%= invoice.price %></td>
         <td><%= invoice.paid_at %></td>
         <td><%= invoice.notes %></td>
-        <td>
-            <%= link_to invoice.client.name, client_path(invoice.client_id), class: "link-dark" %>
-        </td>
+        <td><%= link_to invoice.client.name, client_path(invoice.client_id), class: "link-dark" %></td>
       </tr>
     <% end %>
   </tbody>
