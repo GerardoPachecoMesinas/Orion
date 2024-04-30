@@ -12,10 +12,13 @@
         <li class="nav-item">
           <%= link_to "Clientes", clients_path, class: "nav-link", aria: {current: "page"} %>
         </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
+        <li class="nav-item">
             <%= link_to "Servicios", invoices_path, class: "nav-link" %>
-          </li>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Paquetes", service_packages_path, class: "nav-link" %>
+        </li>
+        <% if user_signed_in? %>
           <li class="nav-item">
             <%= button_to "Cerrar sesión", destroy_user_session_path, class: "nav-link", method: :delete, data: { confirm: "Are you sure to delete?" }%>
           </li>
