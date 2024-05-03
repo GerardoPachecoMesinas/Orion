@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_23_200406) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_30_161849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +34,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_200406) do
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "service_package_id", null: false
     t.index ["client_id"], name: "index_invoices_on_client_id"
+    t.index ["service_package_id"], name: "index_invoices_on_service_package_id"
+  end
+
+  create_table "service_packages", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "bandwidth"
+    t.string "clasification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -60,5 +71,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_200406) do
   end
 
   add_foreign_key "invoices", "clients"
+  add_foreign_key "invoices", "service_packages"
   add_foreign_key "tickets", "clients"
 end

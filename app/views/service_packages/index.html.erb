@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Service packages</h1>
+
+<div id="service_packages">
+  <% @service_packages.each do |service_package| %>
+    <%= render service_package %>
+    <p>
+      <%= link_to "Show this service package", service_package %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New service package", new_service_package_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_packages
   get "reports/monthly_income_report"
 
   get "clients/serv"

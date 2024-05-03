@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @service_package %>
+
+<div>
+  <%= link_to "Edit this service package", edit_service_package_path(@service_package) %> |
+  <%= link_to "Back to service packages", service_packages_path %>
+
+  <%= button_to "Destroy this service package", @service_package, method: :delete %>
+</div>
