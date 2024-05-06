@@ -9,8 +9,11 @@
       <%= link_to "Regresar al listado de Paquetes", service_packages_path, class: "btn btn-outline-light"%>
     </div>
     <div class="col-6 text-end">
-      <%= button_to "Eliminar Paquete", @service_package, class: "btn btn-outline-danger", method: :delete,
-      data: { confirm: "seguro que quieres eliminar el servicio?" } %>
+      <%= button_to "Eliminar Paquete", 
+            @service_package, 
+            class: "btn btn-outline-danger", 
+            method: :delete,
+            data: { confirm: "seguro que quieres eliminar el servicio?" } %>
     </div>
   </div>
 </div>
