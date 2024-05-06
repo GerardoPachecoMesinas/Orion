@@ -1,37 +1,29 @@
-<%= form_with(model: service_package) do |form| %>
-  <% if service_package.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(service_package.errors.count, "error") %> prohibited this service_package from being saved:</h2>
+  <div class="field mb-3 col-3">
+    <%= form_with(model: service_package) do |form| %>
+      <% if service_package.errors.any? %>
+        <div class="text-danger">
+          <h2>Se han producido los siguientes errores:</h2>
 
-      <ul>
-        <% service_package.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% service_package.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %> <br>
+
+      <%= form.label :price, class: "form-label" %>
+      <%= form.number_field :price, class: "form-control" %><br>
+
+      <%= form.label :bandwidth, class: "form-label" %>
+      <%= form.text_field :bandwidth, class: "form-control" %><br>
+
+      <%= form.label :clasification, class: "form-label" %>
+      <%= form.text_field :clasification, class: "form-control" %><br>
+
+      <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :bandwidth, style: "display: block" %>
-    <%= form.text_field :bandwidth %>
-  </div>
-
-  <div>
-    <%= form.label :clasification, style: "display: block" %>
-    <%= form.text_field :clasification %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

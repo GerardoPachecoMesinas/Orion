@@ -1,4 +1,5 @@
 class ServicePackagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_service_package, only: %i[ show edit update destroy ]
 
   # GET /service_packages or /service_packages.json

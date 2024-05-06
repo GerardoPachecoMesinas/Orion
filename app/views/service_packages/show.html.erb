@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @service_package %>
-
-<div>
-  <%= link_to "Edit this service package", edit_service_package_path(@service_package) %> |
-  <%= link_to "Back to service packages", service_packages_path %>
-
-  <%= button_to "Destroy this service package", @service_package, method: :delete %>
+<div class="card container bg-black text-secondary mb-5">
+  <h3 class="card-header"><%= @service_package.name %></h3>
+  <div class="card-body row">
+    <p class="card-text">Precio<strong><%= @service_package.price %></strong></p>
+    <p class="card-text">Descripción:<strong><%= @service_package.bandwidth %></strong></p>
+    <p class="card-text">Descripción:<strong><%= @service_package.clasification %></strong></p>
+    <div class="col-6">
+      <%= link_to "Editar Paquete", edit_service_package_path(@service_package), class: "btn btn-outline-light" %>
+      <%= link_to "Regresar al listado de Paquetes", service_packages_path, class: "btn btn-outline-light"%>
+    </div>
+    <div class="col-6 text-end">
+      <%= button_to "Eliminar Paquete", 
+            @service_package, 
+            class: "btn btn-outline-danger", 
+            method: :delete,
+            data: { confirm: "seguro que quieres eliminar el servicio?" } %>
+    </div>
+  </div>
 </div>

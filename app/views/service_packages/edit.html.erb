@@ -1,10 +1,17 @@
-<h1>Editing service package</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+        <h2>Editar Paquete de Servicios</h2>
+    </div>
+  </div>
 
-<%= render "form", service_package: @service_package %>
+  <div class="row justify-content-center">
+    <% provide(:button, "Editar Paquete") %>
+    <%= render "form", service_package: @service_package %>
 
-<br>
-
-<div>
-  <%= link_to "Show this service package", @service_package %> |
-  <%= link_to "Back to service packages", service_packages_path %>
+    <div class="col-3 mt-5 ms-5">
+      <%= link_to "Ver este Paquete de Servicios", @service_package, class: "btn btn-outline-light my-5" %>
+      <%= link_to "Regresar al listado de Paquetes", service_packages_path, class: "btn btn-outline-light mt-5" %>
+    </div>
+  </div>
 </div>
