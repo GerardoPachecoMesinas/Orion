@@ -25,7 +25,11 @@
       <% @service_packages.each do |service_package| %>
         <tr>
           <th scope="row"><%= service_package.id %><br></th>
-          <td><%= link_to service_package.name, service_package, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %></td>
+          <td>
+            <%= link_to service_package.name, 
+                  service_package, 
+                  class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+          </td>
           <td><%= service_package.price %></td>
           <td><%= service_package.bandwidth %></td>
           <td><%= service_package.clasification %></td>
