@@ -30,7 +30,7 @@
                   service_package, 
                   class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
           </td>
-          <td><%= service_package.price %></td>
+          <td><%= number_to_currency service_package.price %></td>
           <td><%= service_package.bandwidth %></td>
           <td><%= service_package.clasification %></td>
           <td>
