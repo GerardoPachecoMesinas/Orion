@@ -36,7 +36,13 @@
           <td>
             <div class="btn-group">
               <%= link_to "Editar", edit_service_package_path(service_package), class: "btn btn-outline-secondary" %>
-              <%= button_to "Eliminar", service_package, class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar este Paquete de Servicio?" } %>
+              <%= button_to "Eliminar", 
+                    service_package, 
+                    class: "btn btn-outline-danger", 
+                    method: :delete, 
+                    data: {
+                      confirm: "¿Seguro que quieres eliminar este Paquete de Servicio?" 
+                    } %>
             </div>
           </td>
         </tr>
