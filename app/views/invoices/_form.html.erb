@@ -1,4 +1,5 @@
-  <%= form_for([@client, @invoice]) do |f| %>
+<div class="col-4 mb-3">
+  <%= form_with(model: [@client, @invoice]) do |f| %>
     <% if @invoice.errors.any? %>
       <div class="text-danger">
         <h2> Se han producido los siguientes errores: </h2>
@@ -9,56 +10,28 @@
         </ul>
       </div>
     <% end %>
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :name, "Nombre del servicio", class: "form-label" %><br />
-        <%= f.text_field :name, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :started_at, "Fecha de inicio", class: "form-label" %>
-        <%= f.date_field :started_at, class: "form-control" %>
-      </div>
-    </div>
+    <%= f.label :name, "Nombre del servicio", class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %><br>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :finished_at, "Fecha de corte", class: "form-label" %><br />
-        <%= f.date_field :finished_at, class: "form-control" %>
-      </div>
-    </div>
+    <%= f.label :started_at, "Fecha de inicio", class: "form-label" %>
+    <%= f.date_field :started_at, class: "form-control" %><br>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :disconnected_at, "Fecha límite de pago", class: "form-label" %><br />
-        <%= f.date_field :disconnected_at, class: "form-control" %>
-      </div>
-    </div>
+    <%= f.label :finished_at, "Fecha de corte", class: "form-label" %>
+    <%= f.date_field :finished_at, class: "form-control" %><br>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :price, "Costo del servicio", class: "form-label" %><br />
-        <%= f.text_field :price, class: "form-control" %>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :paid_at, "Pagado el día", class: "form-label" %><br />
-        <%= f.date_field :paid_at, class: "form-control" %>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :notes, "Anotaciones", class: "form-label" %><br />
-        <%= f.text_area :notes, class: "form-control" %>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class=" col-4">
-        <button type="submit" class="btn btn-primary">submit</button>
-      </div>
-    </div>
+    <%= f.label :disconnected_at, "Fecha límite de pago", class: "form-label" %>
+    <%= f.date_field :disconnected_at, class: "form-control" %><br>
+
+    <%= f.label :price, "Costo del servicio", class: "form-label" %>
+    <%= f.text_field :price, class: "form-control" %><br>
+
+    <%= f.label :paid_at, "Pagado el día", class: "form-label" %>
+    <%= f.date_field :paid_at, class: "form-control" %><br>
+
+    <%= f.label :notes, "Anotaciones", class: "form-label" %>
+    <%= f.text_area :notes, class: "form-control" %><br>
+
+    <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
   <% end %>
 </div>
