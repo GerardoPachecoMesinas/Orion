@@ -1,3 +1,5 @@
+<% provide(:model, @client) %>
+
 <div class= "container">
   <div class="row justify-content-center">
     <div class="col-4">
@@ -5,5 +7,8 @@
     </div>
   </div>
 
-  <%= render "form"%>
+  <div class="row justify-content-center">
+    <% provide(:button, "Crear") %>
+    <%= render "form", client: @client %>
+  </div>
 </div>
