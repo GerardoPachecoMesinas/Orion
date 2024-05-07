@@ -1,46 +1,28 @@
-  <%= form_for @client do |f| %>
-    <% if @client.errors.any? %>
-      <div style="color: red">
-        <h2> Se han producido los siguientes errores: </h2>
+<div class="col-4 mb-3">
+  <%= form_with(model: client) do |f| %>
+    <% if client.errors.any? %>
+      <div class="text-danger">
+        <h2>Se han producido los siguientes errores: </h2>
         <ul>
-          <% @client.errors.each do |error| %>
+          <% client.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :name, "Nombre", class: "form-label" %><br />
-        <%= f.text_field :name, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4 form-check">
-        <%= f.check_box :active, class: "form-check-input" %>
-        <%= f.label :active, "Status", class: "form-check-label" %>
-      </div>
-    </div>
+    <%= f.label :name, "Nombre", class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %><br>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :phone, "Teléfono", class: "form-label" %><br />
-        <%= f.text_field :phone, class: "form-control" %>
-      </div>
-    </div>
+    <%= f.label :active, "Activo", class: "form-check-label" %><br>
+    <%= f.check_box :active, class: "form-check-input mb-3" %><br>
 
-    <div class="row justify-content-center">
-      <div class="field mb-3 col-4">
-        <%= f.label :location, "Localidad", class: "form-label" %><br />
-        <%= f.text_field :location, class: "form-control" %>
-      </div>
-    </div>
+    <%= f.label :phone, "Teléfono", class: "form-label" %>
+    <%= f.text_field :phone, class: "form-control" %><br>
 
-    <div class="row justify-content-center">
-      <div class=" col-4">
-        <button type="submit" class="btn btn-primary">submit</button>
-      </div>
-    </div>
+    <%= f.label :location, "Localidad", class: "form-label" %>
+    <%= f.text_field :location, class: "form-control" %><br>
+
+    <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
   <% end %>
 </div>
