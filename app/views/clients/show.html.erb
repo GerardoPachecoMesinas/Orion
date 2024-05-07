@@ -3,9 +3,12 @@
     <div class="col-6">
       <h2>Cliente</h2>
     </div>
+
     <div class="col-6 text-end">
-      <%= button_to "Eliminar cliente", @client, class: "btn btn-outline-danger", method: :delete,
-      data: { confirm: "seguro que quieres eliminar el articulo?" } %>
+      <%= button_to "Eliminar cliente", @client,
+          class: "btn btn-outline-danger",
+          method: :delete,
+          data: { turbo_confirm: "seguro que quieres eliminar este cliente?" } %>
     </div>
   </div>
 </div>
@@ -24,9 +27,10 @@
 
 <div class="container">
   <div class="row my-5">
-    <div class="col-6 ">
+    <div class="col-6">
       <h2>Servicios</h2>
     </div>
+
     <div class="col-6 text-end">
       <%= link_to "Nuevo servicio", new_client_invoice_path(@client, @invoice), class: "btn btn-outline-light" %>
     </div>
@@ -47,8 +51,10 @@
         <%= link_to "Editar servicio", edit_client_invoice_path(@client, invoice), class: "btn btn-outline-light" %>
       </div>
       <div class="col-6 text-end">
-        <%= button_to "Eliminar servicio", ([@client, invoice]), class: "btn btn-outline-danger",
-        method: :delete, data: { confirm: "seguro que quieres eliminar el servicio?" } %>
+        <%= button_to "Eliminar servicio", ([@client, invoice]),
+            class: "btn btn-outline-danger",
+            method: :delete,
+            data: { turbo_confirm: "seguro que quieres eliminar el servicio?" } %>
       </div>
     </div>
   </div>
@@ -59,6 +65,7 @@
     <div class="col-6">
       <h2>Tickets</h2>
     </div>
+
     <div class="col-6 text-end">
       <%= link_to "Nuevo Ticket", new_client_ticket_path(@client), class: "btn btn-outline-light" %>
     </div>
@@ -75,8 +82,10 @@
         <%= link_to "Editar ticket", edit_client_ticket_path(@client, ticket), class: "btn btn-outline-light" %>
       </div>
       <div class="col-6 text-end">
-        <%= button_to "Eliminar ticket", ([@client, ticket]), class: "btn btn-outline-danger",
-        method: :delete, data: { confirm: "seguro que quieres eliminar el servicio?" } %>
+        <%= button_to "Eliminar ticket", ([@client, ticket]),
+            class: "btn btn-outline-danger",
+            method: :delete,
+            data: { turbo_confirm: "seguro que quieres eliminar el ticket?" } %>
       </div>
     </div>
   </div>
