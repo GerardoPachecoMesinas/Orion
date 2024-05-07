@@ -1,42 +1,46 @@
-<div class= "container-fluid ms-3">
+<div class="container-fluid ms-3">
   <div class="row mb-3">
     <div class="col-10">
-        <h2>Listado de clientes</h2>
+      <h2>Listado de clientes</h2>
     </div>
     <div class="col-2">
-        <%= link_to "Nuevo cliente", new_client_path, class: "btn btn-outline-light" %>
+      <%= link_to "Nuevo cliente", new_client_path, class: "btn btn-outline-light" %>
     </div>
   </div>
 </div>
 
 <div class="container-fluid">
-<table class="table table-secondary table-hover table-responsive table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Status</th>
-      <th scope="col">Teléfono</th>
-      <th scope="col">Localidad</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @clients.each do |client| %>
+  <table class="table table-secondary table-hover table-responsive table-striped">
+    <thead>
       <tr>
-        <th scope="row"> <%= client.id %><br></th>
-        <td><%= link_to client.name, client, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %></td>
-        <td><%= client.active ? "Activo" : "Inactivo" %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.location %></td>
-        <td>
-          <div class="btn-group">
-            <%= link_to "Editar", edit_client_path(client), class: "btn btn-outline-secondary" %>
-            <%= button_to "Eliminar", client, class: "btn btn-outline-danger", method: :delete, data: {confirm: "seguro que quieres eliminar este cliente?" } %>
-          </div>
-        </td>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Status</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <th scope="row"> <%= client.id %><br></th>
+          <td><%= link_to client.name, client,
+          class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %></td>
+          <td><%= client.active ? "Activo" : "Inactivo" %></td>
+          <td><%= client.phone %></td>
+          <td><%= client.location %></td>
+          <td>
+            <div class="btn-group">
+              <%= link_to "Editar", edit_client_path(client), class: "btn btn-outline-secondary rounded-end me-2" %>
+              <%= button_to "Eliminar", client,
+                  class: "btn btn-outline-danger",
+                  method: :delete,
+                  data: { turbo_confirm: "seguro que quieres eliminar este cliente?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
