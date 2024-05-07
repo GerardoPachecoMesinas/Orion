@@ -53,7 +53,7 @@
       </div>
       <div class="col-6 text-end">
         <%= button_to "Eliminar servicio",
-              ([@client, invoice]),
+              [@client, invoice],
               class: "btn btn-outline-danger",
               method: :delete,
               data: { turbo_confirm: "¿Seguro que quieres eliminar el Servicio?" } %>
