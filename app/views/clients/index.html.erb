@@ -25,8 +25,11 @@
       <% @clients.each do |client| %>
         <tr>
           <th scope="row"> <%= client.id %><br></th>
-          <td><%= link_to client.name, client,
-          class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %></td>
+          <td>
+            <%= link_to client.name, 
+                  client,
+                  class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+          </td>
           <td><%= client.active ? "Activo" : "Inactivo" %></td>
           <td><%= client.phone %></td>
           <td><%= client.location %></td>
