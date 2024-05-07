@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: %i[show edit update destroy]
 
-  # GET /client or /client.json
+  # GET /clients or /clients.json
   def index
     @clients = Client.all.order(created_at: :desc)
   end
