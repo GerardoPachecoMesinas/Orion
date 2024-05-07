@@ -85,7 +85,7 @@
       </div>
       <div class="col-6 text-end">
         <%= button_to "Eliminar ticket",
-              ([@client, ticket]),
+              [@client, ticket],
               class: "btn btn-outline-danger",
               method: :delete,
               data: { turbo_confirm: "¿Seguro que quieres eliminar el Ticket?" } %>

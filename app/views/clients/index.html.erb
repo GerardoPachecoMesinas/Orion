@@ -26,7 +26,7 @@
         <tr>
           <th scope="row"> <%= client.id %><br></th>
           <td>
-            <%= link_to client.name, 
+            <%= link_to client.name,
                   client,
                   class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
           </td>
@@ -35,14 +35,14 @@
           <td><%= client.location %></td>
           <td>
             <div class="btn-group">
-              <%= link_to "Editar", 
-                    edit_client_path(client), 
+              <%= link_to "Editar",
+                    edit_client_path(client),
                     class: "btn btn-outline-secondary rounded-end me-2" %>
-              <%= button_to "Eliminar", 
+              <%= button_to "Eliminar",
                     client,
                     class: "btn btn-outline-danger",
                     method: :delete,
-                    data: { turbo_confirm: "seguro que quieres eliminar este cliente?" } %>
+                    data: { turbo_confirm: "¿Seguro que quieres eliminar este Cliente?" } %>
             </div>
           </td>
         </tr>
