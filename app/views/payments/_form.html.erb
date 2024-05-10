@@ -1,0 +1,30 @@
+<%= form_with(model: [@client, @invoice, payment]) do |form| %>
+  <% if payment.errors.any? %>
+    <div class="text-danger">
+      <h2><%= pluralize(payment.errors.count, "error") %> Se han producido los siguientes errores:</h2>
+
+      <ul>
+        <% payment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= form.label :paid_at, "Pagado el", class: "form-label" %>
+    <%= form.date_field :paid_at, class: "form-control" %><br>
+
+    <%= form.label :amount, "Monto", class: "form-label" %>
+    <%= form.number_field :amount, class: "form-control" %><br>
+
+    <%= form.label :method, "Método de pago", class: "form-label" %>
+    <%= form.text_field :method, class: "form-control" %><br>
+
+    <%= form.label :notes, "Notas", class: "form-label" %>
+    <%= form.text_area :notes, class: "form-control" %><br>
+
+    <% form.label :invoice_id, class: "form-label" %>
+    <% form.text_field :invoice_id, class: "form-control" %><br>
+
+    <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
+<% end %>
