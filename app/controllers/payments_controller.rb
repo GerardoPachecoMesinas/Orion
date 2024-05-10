@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = @invoice.payments.build
+    @payment = @invoice.payments.new
   end
 
   # GET /payments/1/edit
