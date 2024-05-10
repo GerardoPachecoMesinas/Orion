@@ -61,23 +61,23 @@ class PaymentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_client
-      @client = Client.find(params[:client_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_client
+    @client = Client.find(params[:client_id])
+  end
 
   # Use callbacks to share common setup or constraints between actions.
-    def set_invoice
-      @invoice = @client.invoices.find(params[:invoice_id])
-    end
+  def set_invoice
+    @invoice = @client.invoices.find(params[:invoice_id])
+  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_payment
-      @payment = @invoice.payment.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_payment
+    @payment = @invoice.payment.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def payment_params
-      params.require(:payment).permit(:piad_at, :amount, :method, :notes, :invoice_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def payment_params
+    params.require(:payment).permit(:paid_at, :amount, :method, :notes, :invoice_id)
+  end
 end
