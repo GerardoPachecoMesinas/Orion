@@ -11,20 +11,20 @@
     </div>
   <% end %>
 
-    <%= form.label :paid_at, "Pagado el", class: "form-label" %>
-    <%= form.date_field :paid_at, class: "form-control mb-3" %>
+  <%= form.label :paid_at, "Pagado el", class: "form-label" %>
+  <%= form.date_field :paid_at, class: "form-control mb-3" %>
 
-    <%= form.label :amount, "Monto", class: "form-label" %>
-    <%= form.number_field :amount, class: "form-control mb-3" %>
+  <%= form.label :amount, "Monto", class: "form-label" %>
+  <%= form.number_field :amount, class: "form-control mb-3" %>
 
-    <%= form.label :method, "Método de pago", class: "form-label" %>
-    <%= form.text_field :method, class: "form-control mb-3" %>
+  <%= form.label :method, "Método de pago", class: "form-label" %>
+  <%= form.text_field :method, class: "form-control mb-3" %>
 
-    <%= form.label :notes, "Notas", class: "form-label" %>
-    <%= form.text_area :notes, class: "form-control mb-3" %>
+  <%= form.label :notes, "Notas", class: "form-label" %>
+  <%= form.text_area :notes, class: "form-control mb-3" %>
 
-    <% form.label :invoice_id, class: "form-label" %>
-    <% form.text_field :invoice_id, class: "form-control mb-3" %>
+  <% form.label :invoice_id, class: "form-label" %>
+  <% form.text_field :invoice_id, class: "form-control mb-3" %>
 
-    <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
+  <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
 <% end %>
