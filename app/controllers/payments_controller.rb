@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, except: :index
   before_action :set_invoice, except: :index
-  before_action :set_payment, only: %i[ show edit update destroy ]
+  before_action :set_payment, only: %i[show edit update destroy]
 
   # GET /payments or /payments.json
   def index
