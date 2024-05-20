@@ -24,16 +24,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_001427) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.string "name"
     t.datetime "started_at"
     t.datetime "finished_at"
     t.datetime "disconnected_at"
-    t.integer "price"
-    t.datetime "paid_at"
     t.text "notes"
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "paid_at"
+    t.integer "price"
+    t.string "name"
     t.bigint "service_package_id", null: false
     t.index ["client_id"], name: "index_invoices_on_client_id"
     t.index ["service_package_id"], name: "index_invoices_on_service_package_id"
