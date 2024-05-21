@@ -1,12 +1,12 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_client, except: :index
-  before_action :set_invoice, except: :index
+  before_action :set_client
+  before_action :set_invoice
   before_action :set_payment, only: %i[show edit update destroy]
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.all
+    @payments = @invoice.payments.all
   end
 
   # GET /payments/1 or /payments/1.json
@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = @invoice.payments.new
+    @payment = @invoice.payments.build
   end
 
   # GET /payments/1/edit
@@ -24,11 +24,11 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    @payment = Payment.build(payment_params)
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to payment_url(@payment), notice: "Payment was successfully created." }
+        format.html { redirect_to client_invoice_payment_path(@client, @invoice, @payment), notice: "El Pago fue realizado exitosamente." }
         format.json { render :show, status: :created, location: [@invoice, @payment] }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to payment_url(@payment), notice: "Payment was successfully updated." }
+        format.html { redirect_to client_invoice_payment_path(@client, @invoice, @payment), notice: "El Pago fue actualizado exitosamente." }
         format.json { render :show, status: :ok, location: [@invoice, @payment] }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class PaymentsController < ApplicationController
     @payment.destroy!
 
     respond_to do |format|
-      format.html { redirect_to payments_url(@invoice), notice: "Payment was successfully destroyed." }
+      format.html { redirect_to client_invoice_path(@client, @invoice), notice: "El Pago fue eliminado exitosamente." }
       format.json { head :no_content }
     end
   end
@@ -73,7 +73,7 @@ class PaymentsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_payment
-    @payment = @invoice.payment.find(params[:id])
+    @payment = @invoice.payments.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
