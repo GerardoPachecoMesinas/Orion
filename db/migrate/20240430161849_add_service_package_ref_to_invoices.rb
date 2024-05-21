@@ -1,6 +1,6 @@
 class AddServicePackageRefToInvoices < ActiveRecord::Migration[7.1]
   def change
-    default_service_package_id = ServicePackage.create(name: "Sin Definir").id
+    default_service_package_id = ServicePackage.find_or_create_by(name: "Sin Definir").id
     add_reference :invoices, :service_package, foreign_key: true, null: false, default: default_service_package_id
 
     # set default back to nil
