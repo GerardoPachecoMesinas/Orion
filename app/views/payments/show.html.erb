@@ -1,8 +1,34 @@
-<%= render @payment %>
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-6">
+      <h2>Pago</h2>
+    </div>
+    <div class="col text-end">
+        <div class="btn-group">
+          <%= link_to "Regresar a la factura", client_invoice_path(@client, @invoice), class: "btn btn-outline-light rounded-end me-3" %>
+          <%= link_to "Listado de Pagos", client_invoice_payments_path, class: "btn btn-outline-light rounded-start" %>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Edit this payment", edit_payment_path(@payment) %> |
-  <%= link_to "Back to payments", payments_path %>
-
-  <%= button_to "Destroy this payment", @payment, method: :delete %>
+  <div class="card bg-black text-secondary mb-5">
+    <h3 class="card-header">
+      <p class="card-text">Pagado el día: <strong><%= @payment.paid_at.to_fs(:long) %></strong></p>
+    </h3>
+    <div class="card-body row">
+      <p class="card-text">Monto del Pago: <strong><%= number_to_currency @payment.amount %></strong></p>
+      <p class="card-text">Método de Pago: <strong><%= @payment.method %></strong></p>
+      <p class="card-text">Anotaciones: <strong><%= @payment.notes %></strong></p>
+      <div class="col-6">
+        <%= link_to "Editar Pago", edit_client_invoice_payment_path(@client, @invoice, @payment), class: "btn btn-outline-light" %>
+      </div>
+      <div class="col-6 text-end">
+        <%= button_to "Eliminar Pago",
+              [@client, @invoice, @payment],
+              class: "btn btn-outline-danger",
+              method: :delete,
+              data: { turbo_confirm: "¿Seguro que quieres eliminar este Pago?" } %>
+      </div>
+    </div>
+  </div>
 </div>
