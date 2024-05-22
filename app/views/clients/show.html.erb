@@ -16,7 +16,7 @@
   <div class="card bg-black text-secondary mb-5">
     <h3 class="card-header"><%= @client.name %></h3>
     <div class="card-body row">
-      <p class="card-text">Status: <strong><%= @client.active ? "Activo" : "Inactivo" %></strong></p>
+      <p class="card-text">Status: <strong><%= @client.status %></strong></p>
       <p class="card-text">Teléfono: <strong><%= @client.phone %></strong></p>
       <p class="card-text">Localidad: <strong><%= @client.location %></strong></p>
       <div class="col-6">
@@ -53,7 +53,7 @@
         <p class="card-text">Estado de Factura: <strong><%= invoice.payment_status %></strong></p>
         <p class="card-text">Anotaciones: <strong><%= invoice.notes %> </strong></p>
         <div class="col-6">
-            <%= link_to "Editar servicio", edit_client_invoice_path(@client, invoice), class: "btn btn-outline-secondary rounded-end me-3" %>
+          <%= link_to "Editar servicio", edit_client_invoice_path(@client, invoice), class: "btn btn-outline-secondary rounded-end me-3" %>
         </div>
         <div class="col-6 text-end">
           <%= button_to "Eliminar servicio",
