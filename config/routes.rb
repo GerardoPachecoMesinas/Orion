@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   get "clients/serv"
   resources :clients do
-    resources :invoices, except: :index
+    resources :invoices, except: :index do
+      resources :payments
+    end
     resources :tickets
   end
+
   get "invoices", to: "invoices#index"
 
   devise_for :users

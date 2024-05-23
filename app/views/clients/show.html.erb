@@ -40,7 +40,11 @@
 
 <% @invoices.each do |invoice| %>
   <div class="card container bg-black text-secondary mb-5">
-    <h3 class="card-header"><%= invoice.name %></h3>
+    <h3 class="card-header">
+      <%= link_to invoice.name,
+            client_invoice_path(@client, invoice),
+            class: "link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+    </h3>
     <div class="card-body row">
       <p class="card-text">Fecha de inicio: <strong><%= invoice.started_at %></strong></p>
       <p class="card-text">Fecha de corte: <strong><%= invoice.finished_at %></strong></p>

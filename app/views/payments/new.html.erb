@@ -1,0 +1,13 @@
+<div class="continer-fluid">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <h1>Realizar Pago</h1>
+      <% provide(:button, "Realizar Pago") %>
+      <%= render "form", payment: @payment %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Regresar al servicio", client_invoice_path(@client, @invoice) %>
+</div>

@@ -1,6 +1,6 @@
 class CreateTickets < ActiveRecord::Migration[7.1]
   def change
-    create_table :tickets do |t|q
+    create_table :tickets do |t|
       t.string :status
       t.integer :priority_level
       t.text :description
