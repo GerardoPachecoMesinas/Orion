@@ -78,7 +78,7 @@
 
   <% @tickets.each do |ticket| %>
     <div class="card bg-black text-secondary mb-5">
-      <h3 class="card-header"><%= ticket.status %></h3>
+      <h3 class="card-header"><%= ticket.state %></h3>
       <div class="card-body row">
         <p class="card-text">Nivel de Prioridad: <strong><%= ticket.priority_level %></strong></p>
         <p class="card-text">Descripción: <strong><%= ticket.description %></strong></p>
