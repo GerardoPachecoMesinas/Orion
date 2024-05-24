@@ -1,8 +1,18 @@
-<h1>Editing payment</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 offset-sm-4">
+      <h1>Editar Pago</h1>
+    </div>
 
-<%= render "form", payment: @payment %>
+    <div class="col-2 text-end">
+      <%= link_to "Regresar al Pago", client_invoice_payment_path(@client, @invoice, @payment), class: "btn btn-outline-light" %>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Show this payment", @payment %> |
-  <%= link_to "Back to payments", payments_path %>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <% provide(:button, "Editar")%>
+      <%= render "form", payment: @payment %>
+    </div>
+  </div>
 </div>

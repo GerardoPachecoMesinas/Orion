@@ -23,8 +23,8 @@
   <%= form.label :notes, "Notas", class: "form-label" %>
   <%= form.text_area :notes, class: "form-control mb-3" %>
 
-  <% form.label :invoice_id, class: "form-label" %>
-  <% form.text_field :invoice_id, class: "form-control mb-3" %>
+  <%= form.label :invoice_id, class: "form-label" %>
+  <%= form.text_field :invoice_id, class: "form-control mb-3" %>
 
   <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
 <% end %>

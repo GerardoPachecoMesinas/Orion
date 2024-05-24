@@ -1,14 +1,61 @@
 <div class="container">
-  <div class="row">
-    <div class="col-4">
-      <h2><%= @invoice.name %></h2><br>
-      <p>Fecha de inicio: <%= @invoice.started_at.to_fs(:long) %></p>
-      <p>Fecha de corte: <%= @invoice.finished_at.to_fs(:short) %></p>
-      <p>Fecha límite de pago: <%= @invoice.disconnected_at %></p>
-      <p>Costo del servicio: <%= @invoice.price %></p>
-      <p>Pagadoel día: <%= @invoice.paid_at %></p>
-      <p>Anotaciones: <%= @invoice.notes %></p>
+  <div class="row my-5">
+    <div class="col-6">
+      <h2>Factura</h2>
+    </div>
+
+    <div class="col-6 text-end">
+      <div class="btn-group">
+        <%= link_to "Regresar al Servicio", client_path(@client, anchor: "invoice"), class: "btn btn-outline-light rounded-end me-3" %>
+        <%= link_to "Realizar pago", new_client_invoice_payment_path(@client, @invoice), class: "btn btn-outline-light rounded me-3" %>
+        <%= link_to "index de pagos", client_invoice_payments_path(@client, @invoice), class: "btn btn-outline-light rounded-start" %>
+      </div>
     </div>
   </div>
+
+  <table class="table table-secondary table-hover table-responsive table-striped">
+    <thead>
+      <tr class="text-center">
+        <th scope="col" colspan="2">Detalle de Facturación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="ps-5">Cliente</th>
+        <td><%= @invoice.client.name %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Servicio</th>
+        <td><%= @invoice.service_package.name %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Fecha de inicio</th>
+        <td><%= @invoice.started_at.to_fs(:short) %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Fecha límite de Pago</th>
+        <td><%= @invoice.disconnected_at.to_fs(:short) %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Fecha de Corte</th>
+        <td><%= @invoice.finished_at.to_fs(:short) %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Concepto adicional</th>
+        <td><%= @invoice.additional_concept %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Monto adicional</th>
+        <td><%= @invoice.aditional_amount %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Estado de factura</th>
+        <td><%= @invoice.payment_status %></td>
+      </tr>
+      <tr>
+        <th scope="row" class="ps-5">Facturación total</th>
+        <td><%= @invoice.total_bill %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<%= link_to "Realizar pago", new_client_invoice_payment_path(@client, @invoice) %>

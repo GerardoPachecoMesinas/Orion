@@ -1,12 +1,45 @@
-<h1>Payments</h1>
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-6">
+      <h2>Listado de Pagos</h2>
+    </div>
 
-<div id="payments">
-  <% @payments.each do |payment| %>
-    <%= render payment %>
-    <p>
-      <%= link_to "Show this payment", payment %>
-    </p>
-  <% end %>
+    <div class="col text-end">
+      <div class="btn-group">
+        <%= link_to "Nuevo Pago", new_client_invoice_payment_path, class: "btn btn-outline-light rounded-end me-2" %>
+        <%= link_to "Regresar a la factura", client_path(@client, anchor: "invoice"), class: "btn btn-outline-light rounded-start" %>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-secondary table-hover table-responsive table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pagado el día</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Método de Pago</th>
+        <th scope="col">Anotaciones</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @payments.each do |payment| %>
+        <tr>
+          <th scope="row"> <%= payment.id %><br></th>
+          <td>
+            <%= payment.paid_at.to_fs(:long) %>
+          </td>
+          <td><%= number_to_currency payment.amount %></td>
+          <td><%= payment.method %></td>
+          <td><%= payment.notes %></td>
+          <td>
+            <%= link_to "Ver Pago",
+                  [@client, @invoice, payment],
+                  class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New payment", new_client_invoice_payment_path %>
