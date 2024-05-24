@@ -23,7 +23,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to client_url(@client), notice: "La factura fue creada correctamente." }
+        format.html { redirect_to client_url(@client, anchor: "invoice"), notice: "La factura fue creada correctamente." }
         format.json { render :show, status: :created, location: [@client, @invoice] }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -73,14 +73,18 @@ class InvoicesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def invoice_params
     params.require(:invoice).permit(
-      :name,
+      :service_package_name,
+      :service_package_cost,
       :started_at,
-      :finished_at,
       :disconnected_at,
-      :price,
-      :paid_at,
+      :finished_at,
+      :additional_concept,
+      :aditional_amount,
+      :total_bill,
+      :payment_status,
       :notes,
-      :client_id
+      :client_id,
+      :service_package_id
     )
   end
 end
