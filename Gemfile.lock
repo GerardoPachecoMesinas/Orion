@@ -279,7 +279,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.6)
   importmap-rails
   jbuilder
-  letter_opener (~> 1.4, >= 1.4.1)
+  letter_opener
   pg
   puma (>= 5.0)
   rails (~> 7.1.2)
