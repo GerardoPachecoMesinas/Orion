@@ -102,9 +102,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "fly.dev",
-    user_name: ENV["GMAIL_USER"],
-    password: ENV["GMAIL_USER_PASSWORD"],
+    domain: "gmail.com",
+    user_name: "contacto.orion.networks@gmail.com",
+     password: "trlelafnaxukifrq",
     authentication: "plain",
     enable_starttls_auto: true,
     open_timeout: 5,
