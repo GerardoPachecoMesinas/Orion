@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = @invoice.payments.build
+    @payment = @invoice.payments.new
   end
 
   # GET /payments/1/edit
@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.build(payment_params)
+    @payment = Payment.new(payment_params)
 
     respond_to do |format|
       if @payment.save
