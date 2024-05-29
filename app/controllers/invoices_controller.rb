@@ -14,12 +14,12 @@ class InvoicesController < ApplicationController
 
   # GET /invoice/new
   def new
-    @invoice = @client.invoices.build
+    @invoice = @client.invoices.new
   end
 
   # POST /invoice or /invoice.json
   def create
-    @invoice = @client.invoices.build(invoice_params)
+    @invoice = @client.invoices.new(invoice_params)
 
     respond_to do |format|
       if @invoice.save
