@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
 
   # GET /client/1 or /client/1.json
   def show
-    @invoices = @client.invoices
+    @invoices = @client.invoices.order(created_at: :desc)
     @tickets = @client.tickets
   end
 
