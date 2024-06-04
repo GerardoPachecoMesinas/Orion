@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+  include ServicePackagesHelper
+
   before_action :authenticate_user!
   before_action :set_client, except: :index
   before_action :set_invoice, only: %i[show edit update destroy]
@@ -74,7 +76,7 @@ class InvoicesController < ApplicationController
 
   # This callback get a list of service packages with name and cost attributes.
   def set_service_packages
-    @service_packages = ServicePackage.all.map { |sp| [sp.name, sp.id, { data: { name: sp.name, cost: sp.price } }] }
+    @service_packages_options = service_package_options
   end
 
   # Only allow a list of trusted parameters through.
