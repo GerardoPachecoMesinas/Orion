@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   get "reports/monthly_income_report"
 
   resources :clients do
-    resources :invoices, except: :index do
+    resources :invoices do
       resources :payments
     end
     resources :tickets
   end
 
-  get "invoices", to: "invoices#index"
+  get "all_invoices", to: "invoices#general_index"
 
   devise_for :users
 
