@@ -11,12 +11,12 @@ class Invoice < ApplicationRecord
 
   def update_payment_status
     total_payments = payments.sum(:amount)
-    if total_payments >= total_bill
-      self.payment_status = "Pagado"
-    elsif total_payments < total_bill && total_payments > 0
+    if total_payments <= 0
+      self.payment_status = "Pendiente"
+    elsif total_payments < total_bill 
       self.payment_status = "Parcialmente Pagado"
     else
-      self.payment_status = "Pendiente"
+      self.payment_status = "Pagado"
     end
   end
 end
