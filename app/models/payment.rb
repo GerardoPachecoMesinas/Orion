@@ -9,7 +9,7 @@ class Payment < ApplicationRecord
   private
 
   def update_invoice_payment_status
-    invoice.update_payment_status
+    invoice.set_payment_status
     invoice.save
   end
 end

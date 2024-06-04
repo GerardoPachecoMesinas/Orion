@@ -7,9 +7,9 @@ class Invoice < ApplicationRecord
   validates :disconnected_at, presence: { message: "no puede estar vacio" }
   validates :finished_at, presence: { message: "no puede estar vacio" }
 
-  before_save :update_payment_status
+  before_save :set_payment_status
 
-  def update_payment_status
+  def set_payment_status
     total_payments = payments.sum(:amount)
     if total_payments <= 0
       self.payment_status = "Pendiente"
