@@ -1,10 +1,7 @@
 class InvoicesController < ApplicationController
-  include ServicePackagesHelper
-
   before_action :authenticate_user!
   before_action :set_client, except: :index
   before_action :set_invoice, only: %i[show edit update destroy]
-  before_action :set_service_packages, only: %i[new create edit update]
 
   # GET /invoices or /invoices.json
   def index
@@ -72,11 +69,6 @@ class InvoicesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_invoice
     @invoice = @client.invoices.find(params[:id])
-  end
-
-  # This callback get a list of service packages with name and cost attributes.
-  def set_service_packages
-    @service_packages_options = service_package_options
   end
 
   # Only allow a list of trusted parameters through.
