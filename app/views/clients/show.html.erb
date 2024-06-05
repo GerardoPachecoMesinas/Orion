@@ -39,7 +39,7 @@
   </div>
 
   <% @invoices.each do |invoice| %>
-    <% if Time.current < invoice.finished_at || invoice.payment_status != "Pagado" %>
+    <% if active_invoice?(invoice) %>
       <div class="card bg-black text-secondary mb-5" id="invoice">
         <h3 class="card-header">
           <%= link_to invoice.service_package.name,
