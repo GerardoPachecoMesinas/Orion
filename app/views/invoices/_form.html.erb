@@ -13,10 +13,10 @@
 
     <%= f.label :service_package_id, "Paquete de servicio", class: "form-label" %>
     <%= f.select :service_package_id,
-          options_for_select(service_package_options, @service_package_selected),
-            { },
-            class: "form-control mb-3",
-            id: "service_package_select" %>
+      options_for_select(service_package_options, @service_package_selected),
+      {},
+      class: "form-control mb-3",
+      id: "service_package_select" %>
 
     <% f.label :service_package_name, class: "form-label" %>
     <% f.text_field :service_package_name, class: "form-control mb-3", id: "service_package_name" %>
