@@ -32,8 +32,12 @@
 
     <div class="col-6 text-end">
       <div class="btn-group">
-      <%= link_to "Historial de Facturas", client_invoices_path(@client), class: "btn btn-outline-light rounded-end me-3" %>
-      <%= link_to "Nuevo servicio", new_client_invoice_path(@client, @invoice), class: "btn btn-outline-light rounded-start" %>
+      <%= link_to "Historial de Facturas",
+            client_invoices_path(@client),
+            class: "btn btn-outline-light rounded-end me-3" %>
+      <%= link_to "Nuevo servicio",
+            new_client_invoice_path(@client, @invoice),
+            class: "btn btn-outline-light rounded-start" %>
       </div>
     </div>
   </div>
@@ -48,19 +52,45 @@
         </h3>
         <div class="card-body row">
           <p class="card-text">
-            Costo de Paquete de Servicio: 
+            Costo de Paquete de Servicio:
             <strong><%= number_to_currency invoice.service_package_cost %></strong>
           </p>
-          <p class="card-text">Fecha de inicio: <strong><%= invoice.started_at.to_fs(:long) %></strong></p>
-          <p class="card-text">Fecha límite de pago: <strong><%= invoice.disconnected_at.to_fs(:long) %></strong></p>
-          <p class="card-text">Fecha de corte: <strong><%= invoice.finished_at.to_fs(:long) %></strong></p>
-          <p class="card-text">Concepto adicional: <strong><%= invoice.additional_concept %></strong></p>
-          <p class="card-text">Monto adicional: <strong><%= number_to_currency invoice.aditional_amount %></strong></p>
-          <p class="card-text">Monto total: <strong><%= number_to_currency invoice.total_bill %></strong></p>
-          <p class="card-text">Estado de Factura: <strong><%= invoice.payment_status %></strong></p>
-          <p class="card-text">Anotaciones: <strong><%= invoice.notes %> </strong></p>
+          <p class="card-text">
+            Fecha de inicio:
+            <strong><%= invoice.started_at.to_fs(:long) %></strong>
+          </p>
+          <p class="card-text">
+            Fecha límite de pago:
+            <strong><%= invoice.disconnected_at.to_fs(:long) %></strong>
+          </p>
+          <p class="card-text">
+            Fecha de corte:
+            <strong><%= invoice.finished_at.to_fs(:long) %></strong>
+          </p>
+          <p class="card-text">
+            Concepto adicional:
+            <strong><%= invoice.additional_concept %></strong>
+          </p>
+          <p class="card-text">
+            Monto adicional:
+            <strong><%= number_to_currency invoice.aditional_amount %></strong>
+          </p>
+          <p class="card-text">
+            Monto total:
+            <strong><%= number_to_currency invoice.total_bill %></strong>
+          </p>
+          <p class="card-text">
+            Estado de Factura:
+            <strong><%= invoice.payment_status %></strong>
+          </p>
+          <p class="card-text">
+            Anotaciones:
+            <strong><%= invoice.notes %> </strong>
+          </p>
           <div class="col-6">
-            <%= link_to "Editar servicio", edit_client_invoice_path(@client, invoice), class: "btn btn-outline-secondary rounded-end me-3" %>
+            <%= link_to "Editar servicio",
+                  edit_client_invoice_path(@client, invoice),
+                  class: "btn btn-outline-secondary" %>
           </div>
           <div class="col-6 text-end">
             <%= button_to "Eliminar servicio",
