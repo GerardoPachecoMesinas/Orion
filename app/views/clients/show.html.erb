@@ -40,7 +40,7 @@
 
   <% @invoices.each do |invoice| %>
     <% if active_invoice?(invoice) %>
-      <div class="card bg-black text-secondary mb-5" id="invoice">
+      <div class="card bg-black text-secondary mb-5" id="invoice_<%= invoice.id %>">
         <h3 class="card-header">
           <%= link_to invoice.service_package.name,
                 client_invoice_path(@client, invoice),
