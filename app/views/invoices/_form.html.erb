@@ -11,14 +11,18 @@
       </div>
     <% end %>
 
-    <%= f.label :service_package_id, class: "form-label" %>
-    <%= f.number_field :service_package_id, class: "form-control mb-3" %>
+    <%= f.label :service_package_id, "Paquete de servicio", class: "form-label" %>
+    <%= f.select :service_package_id,
+      options_for_select(service_package_options, @service_package_selected),
+      {},
+      class: "form-control mb-3",
+      id: "service_package_select" %>
 
-    <%= f.label :service_package_name, class: "form-label" %>
-    <%= f.text_field :service_package_name, class: "form-control mb-3" %>
+    <% f.label :service_package_name, class: "form-label" %>
+    <% f.text_field :service_package_name, class: "form-control mb-3", id: "service_package_name" %>
 
-    <%= f.label :service_package_cost, class: "form-label" %>
-    <%= f.number_field :service_package_cost, class: "form-control mb-3" %>
+    <%= f.label :service_package_cost, "Costo del paquete", class: "form-label" %>
+    <%= f.number_field :service_package_cost, class: "form-control mb-3", id: "service_package_cost", readonly: true %>
 
     <%= f.label :started_at, "Fecha de inicio", class: "form-label" %>
     <%= f.date_field :started_at, class: "form-control mb-3" %>
@@ -36,13 +40,13 @@
     <%= f.text_field :additional_concept, class: "form-control mb-3" %>
 
     <%= f.label :aditional_amount, "Monto adicional", class: "form-label" %>
-    <%= f.number_field :aditional_amount, class: "form-control mb-3" %>
+    <%= f.number_field :aditional_amount, class: "form-control mb-3", id: "aditional_amount" %>
 
     <%= f.label :total_bill, "Monto total", class: "form-label" %>
-    <%= f.number_field :total_bill, class: "form-control mb-3" %>
+    <%= f.number_field :total_bill, class: "form-control mb-3", id: "total_bill", readonly: true %>
 
     <%= f.label :payment_status, "Estado de factura", class: "form-label" %>
-    <%= f.text_field :payment_status, class: "form-control mb-3" %>
+    <%= f.text_field :payment_status, class: "form-control mb-3", readonly: true%>
 
     <button type="submit" class="btn btn-primary"><%= yield(:button) %></button>
   <% end %>

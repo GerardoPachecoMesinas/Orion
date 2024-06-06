@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, except: :index
-  before_action :set_invoice, only: %i[ show edit update destroy ]
+  before_action :set_invoice, only: %i[show edit update destroy]
 
   # GET /invoices or /invoices.json
   def index
@@ -15,6 +15,7 @@ class InvoicesController < ApplicationController
   # GET /invoice/new
   def new
     @invoice = @client.invoices.new
+    @service_package_selected = ServicePackage.find_by(name: "Sin Definir").id
   end
 
   # POST /invoice or /invoice.json
@@ -65,7 +66,7 @@ class InvoicesController < ApplicationController
     @client = Client.find(params[:client_id])
   end
 
-# Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_invoice
     @invoice = @client.invoices.find(params[:id])
   end
