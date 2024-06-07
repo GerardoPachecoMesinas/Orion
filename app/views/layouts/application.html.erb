@@ -34,15 +34,15 @@
     crossorigin="anonymous"></script>
 
     <script>
+      function updateTotalBill() {
+        var servicePackageCost = parseFloat($("#service_package_cost").val()) || 0;
+        var additionalAmount = parseFloat($("#aditional_amount").val()) || 0;
+        var totalBill = servicePackageCost + additionalAmount;
+
+        $("#total_bill").val(totalBill);
+      }
+
       $(document).ready(function() {
-
-        function updateTotalBill() {
-          var servicePackageCost = parseFloat($("#service_package_cost").val()) || 0;
-          var additionalAmount = parseFloat($("#aditional_amount").val()) || 0;
-          var totalBill = servicePackageCost + additionalAmount;
-          $("#total_bill").val(totalBill);
-        }
-
         $("#service_package_select").change(function() {
           var selectedOption = $(this).find("option:selected");
           var servicePackageName = selectedOption.data("name");
