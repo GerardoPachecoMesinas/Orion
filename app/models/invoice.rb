@@ -13,10 +13,13 @@ class Invoice < ApplicationRecord
     total_payments = payments.sum(:amount)
     if total_payments <= 0
       self.payment_status = "Pendiente"
-    elsif total_payments < total_bill 
+    elsif total_payments < total_bill
       self.payment_status = "Parcialmente Pagado"
     else
       self.payment_status = "Pagado"
     end
   end
+
+  scope :active, -> { where("finished_at > ? OR payment_status != ?", Time.current, "Pagado") }
+
 end
