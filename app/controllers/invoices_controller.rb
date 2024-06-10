@@ -1,11 +1,15 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_client, except: :index
+  before_action :set_client, except: :general_index
   before_action :set_invoice, only: %i[show edit update destroy]
+
+  def general_index
+    @all_invoices = Invoice.all
+  end
 
   # GET /invoices or /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = @client.invoices.all
   end
 
   # GET /invoice/1 or /invoice/1.json

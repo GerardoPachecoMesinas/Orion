@@ -1,19 +1,14 @@
 <div class="container-fluid ms-3">
   <div class="row mb-3">
     <div class="col-4">
-      <h2>Listado de Servicios</h2>
+      <h2>Historial de Facturas de <%= @client.name %></h2>
     </div>
   </div>
-</div>
-
-<div class="mb-3">
-  <%= link_to "Generar Reporte del Mes", reports_monthly_income_report_path, class: "btn btn-primary" %>
 </div>
 
 <table class="table table-secondary table-hover table-responsive table-striped">
   <thead>
     <tr>
-      <th scope="col">Cliente</th>
       <th scope="col">Servicio</th>
       <th scope="col">Fecha de inicio</th>
       <th scope="col">Fecha límite de Pago</th>
@@ -22,13 +17,13 @@
       <th scope="col">Monto adicional</th>
       <th scope="col">Estado de factura</th>
       <th scope="col">Facturación total</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <th scope="row"> <%= invoice.client.name %></th>
-        <td><%= invoice.service_package.name %></td>
+        <th scope="row"><%= invoice.service_package.name %></th>
         <td><%= invoice.started_at.to_fs(:short) %></td>
         <td><%= invoice.disconnected_at.to_fs(:short) %></td>
         <td><%= invoice.finished_at.to_fs(:short) %></td>
@@ -36,6 +31,11 @@
         <td><%= number_to_currency invoice.aditional_amount %></td>
         <td><%= invoice.payment_status %></td>
         <td><%= number_to_currency invoice.total_bill %></td>
+        <td>
+          <%= link_to "Ver Factura",
+                client_invoice_path(invoice.client, invoice),
+                class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
