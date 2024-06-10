@@ -7,6 +7,10 @@ class Invoice < ApplicationRecord
   validates :disconnected_at, presence: { message: "no puede estar vacio" }
   validates :finished_at, presence: { message: "no puede estar vacio" }
 
+  scope :active, -> { where(finished_at: Time.current..) }
+  scope :unpaid, -> { where.not(payment_status: "Pagado") }
+  scope :pending, -> { active.or(unpaid) }
+
   before_save :set_payment_status
 
   def set_payment_status
@@ -20,6 +24,11 @@ class Invoice < ApplicationRecord
     end
   end
 
-  scope :active, -> { where("finished_at > ? OR payment_status != ?", Time.current, "Pagado") }
+  def active?
+    Time.current < finished_at
+  end
 
+  def unpaid?
+    payment_status != "Pagado"
+  end
 end
