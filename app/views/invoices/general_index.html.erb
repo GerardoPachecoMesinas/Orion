@@ -5,9 +5,47 @@
     </div>
   </div>
 
-  <div class="mb-3">
-    <%= link_to "Generar Reporte del Mes", reports_monthly_income_report_path, class: "btn btn-primary" %>
-  </div>
+  <%= form_with(url: all_invoices_path, method: :get, local: true) do %>
+    <div class="row my-3">
+      <div class="col-2">
+        <%= label_tag :name, "Nombre", class: "form-label " %>
+        <%= text_field_tag :name, params[:name], class: "form-control " %>
+      </div>
+
+      <div class="col-2">
+        <%= label_tag :service_package_name, "Paquete de servicios", class: "form-label "  %>
+        <%= select_tag :service_package_name,
+          options_for_select(@service_package_names,
+          params[:service_package_name]),
+          prompt: "Seleccionar",
+          class: "form-control " %>
+      </div>
+
+      <div class="col-2">
+        <%= label_tag :start_date, "Fecha de inicio", class: "form-label"  %>
+        <%= date_field_tag :start_date, params[:start_date], class: "form-control" %>
+      </div>
+
+      <div class="col-2">
+        <%= label_tag :end_date, "Fecha de fin", class: "form-label"  %>
+        <%= date_field_tag :end_date, params[:end_date], class: "form-control" %>
+      </div>
+
+      <div class="col-2">
+        <%= label_tag :payment_status, "Estado de pago", class: "form-label"  %>
+        <%= select_tag :payment_status,
+          options_for_select(Invoice::PAYMENT_STATUSES,
+          params[:payment_status]),
+          prompt: "Seleccionar",
+          class: "form-control" %>
+      </div>
+
+      <div class="col-2">
+        <%= submit_tag "Filtrar", class: "btn btn-primary" %>
+        <%= link_to "Generar Reporte", reports_monthly_income_report_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 
   <table class="table table-secondary table-hover table-responsive table-striped">
     <thead>
