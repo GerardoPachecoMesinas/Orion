@@ -13,14 +13,16 @@ class Invoice < ApplicationRecord
 
   before_save :set_payment_status
 
+  PAYMENT_STATUSES = ["Pendiente", "Parcialmente Pagado", "Pagado"]
+
   def set_payment_status
     total_payments = payments.sum(:amount)
     if total_payments <= 0
-      self.payment_status = "Pendiente"
+      self.payment_status = PAYMENT_STATUSES[0]
     elsif total_payments < total_bill
-      self.payment_status = "Parcialmente Pagado"
+      self.payment_status = PAYMENT_STATUSES[1]
     else
-      self.payment_status = "Pagado"
+      self.payment_status = PAYMENT_STATUSES[2]
     end
   end
 
