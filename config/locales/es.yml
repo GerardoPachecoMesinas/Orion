@@ -1,5 +1,7 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
 es:
+  date:
+    month_names: [~, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
   activerecord:
     attributes:
       user:
