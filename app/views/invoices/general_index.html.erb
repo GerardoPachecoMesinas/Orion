@@ -34,8 +34,7 @@
       <div class="col-2">
         <%= label_tag :payment_status, "Estado de pago", class: "form-label"  %>
         <%= select_tag :payment_status,
-          options_for_select(Invoice::PAYMENT_STATUSES,
-          params[:payment_status]),
+          options_for_select(@payment_status_options, params[:payment_status]),
           prompt: "Seleccionar",
           class: "form-control" %>
       </div>
@@ -68,7 +67,7 @@
           <td><%= invoice.started_at.to_fs(:short) %></td>
           <td><%= invoice.disconnected_at.to_fs(:short) %></td>
           <td><%= invoice.finished_at.to_fs(:short) %></td>
-          <td><%= invoice.payment_status %></td>
+          <td><%= invoice.payment_status_in_spanish %></td>
           <td><%= number_to_currency invoice.total_bill %></td>
           <td>
             <%= link_to "Ver Factura",

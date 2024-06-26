@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <% @invoices.pending.each do |invoice| %>
+  <% @invoices.showing.each do |invoice| %>
     <div class="card bg-black text-secondary mb-5" id="invoice_<%= invoice.id %>">
       <h3 class="card-header">
         <%= link_to invoice.service_package.name,
