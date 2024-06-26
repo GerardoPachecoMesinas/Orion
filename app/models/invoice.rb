@@ -8,22 +8,39 @@ class Invoice < ApplicationRecord
   validates :finished_at, presence: { message: "no puede estar vacio" }
 
   scope :active, -> { where(finished_at: Time.current..) }
-  scope :unpaid, -> { where.not(payment_status: "Pagado") }
-  scope :pending, -> { active.or(unpaid) }
+  scope :unpaid, -> { where.not(payment_status: "paid") }
+  scope :showing, -> { active.or(unpaid) }
 
-  before_save :set_payment_status
+  state_machine :payment_status, initial: :pending do
+    state :pending
+    state :partially_paid
+    state :paid
 
-  PAYMENT_STATUSES = ["Pendiente", "Parcialmente Pagado", "Pagado"]
+    event :add_payment do
+      transition [:pending, :partially_paid] => :partially_paid, if: ->(invoice) { invoice.total_payments > 0 && invoice.total_payments < invoice.total_bill }
+      transition [:pending, :partially_paid] => :paid, if: ->(invoice) { invoice.total_payments >= invoice.total_bill }
+    end
+    event :remove_payment do
+      transition [:paid, :partially_paid] => :partially_paid, if: ->(invoice) { invoice.total_payments > 0 && invoice.total_payments < invoice.total_bill }
+      transition [:paid, :partially_paid] => :pending, if: ->(invoice) { invoice.total_payments <= 0 }
+    end
+  end
+
+  def total_payments
+    payments.sum(:amount)
+  end
 
   def set_payment_status
-    total_payments = payments.sum(:amount)
-    if total_payments <= 0
-      self.payment_status = PAYMENT_STATUSES[0]
-    elsif total_payments < total_bill
-      self.payment_status = PAYMENT_STATUSES[1]
-    else
-      self.payment_status = PAYMENT_STATUSES[2]
-    end
+    add_payment
+  end
+
+  def reset_payment_status
+    remove_payment
+  end
+
+  def payment_status_in_spanish
+    snake_payment_status = payment_status.gsub(" ", "_")
+    I18n.t("activerecord.attributes.invoice.payment_statuses.#{snake_payment_status}")
   end
 
   def active?
@@ -31,6 +48,6 @@ class Invoice < ApplicationRecord
   end
 
   def unpaid?
-    payment_status != "Pagado"
+    payment_status != "paid"
   end
 end
