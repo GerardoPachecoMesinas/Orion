@@ -5,11 +5,6 @@ class InvoicesController < ApplicationController
 
   # This acction filters any invoice using its attributes
   def general_index
-    @service_package_names = Invoice.distinct.pluck(:service_package_name).compact
-    @payment_status_options = Invoice.state_machine.states.map do |state|
-      [I18n.t("activerecord.attributes.invoice.payment_statuses.#{ state.name }"), state.name]
-    end
-
     @all_invoices = Invoice.all
 
     if params[:start_date].present? && params[:end_date].present?
