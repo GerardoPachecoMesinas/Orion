@@ -1,7 +1,14 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
 es:
+  date:
+    month_names: [~, "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
   activerecord:
     attributes:
+      invoice:
+        payment_statuses:
+          pending: "Pendiente"
+          partially_paid: "Parcialmente Pagado"
+          paid: "Pagado"
       user:
         confirmation_sent_at: Confirmación enviada a
         confirmation_token: Código de confirmación

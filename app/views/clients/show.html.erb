@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <% @invoices.pending.each do |invoice| %>
+  <% @invoices.showing.each do |invoice| %>
     <div class="card bg-black text-secondary mb-5" id="invoice_<%= invoice.id %>">
       <h3 class="card-header">
         <%= link_to invoice.service_package.name,
@@ -80,7 +80,7 @@
         </p>
         <p class="card-text">
           Estado de Factura:
-          <strong><%= invoice.payment_status %></strong>
+          <strong><%= invoice.payment_status_in_spanish %></strong>
         </p>
         <p class="card-text">
           Anotaciones:
