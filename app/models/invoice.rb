@@ -11,6 +11,8 @@ class Invoice < ApplicationRecord
   scope :unpaid, -> { where.not(payment_status: "paid") }
   scope :showing, -> { active.or(unpaid) }
 
+  before_save :update_payment_status
+
   state_machine :payment_status, initial: :pending do
     state :pending
     state :partially_paid
@@ -36,6 +38,16 @@ class Invoice < ApplicationRecord
 
   def reset_payment_status
     remove_payment
+  end
+
+  def update_payment_status
+    if total_payments >= total_bill
+      self.payment_status = "paid" unless payment_status == "paid "
+    elsif total_payments > 0
+      self.payment_status = "partially paid" unless payment_status == "partially paid"
+    else
+      self.payment_status = "pending" unless payment_status == "pending"
+    end
   end
 
   def payment_status_in_spanish
