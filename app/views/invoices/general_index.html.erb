@@ -15,8 +15,7 @@
       <div class="col-2">
         <%= label_tag :service_package_name, "Paquete de servicios", class: "form-label "  %>
         <%= select_tag :service_package_name,
-          options_for_select(@service_package_names,
-          params[:service_package_name]),
+          options_for_select(service_package_names, params[:service_package_name]),
           prompt: "Seleccionar",
           class: "form-control " %>
       </div>
@@ -34,7 +33,7 @@
       <div class="col-2">
         <%= label_tag :payment_status, "Estado de pago", class: "form-label"  %>
         <%= select_tag :payment_status,
-          options_for_select(@payment_status_options, params[:payment_status]),
+          options_for_select(payment_status_options, params[:payment_status]),
           prompt: "Seleccionar",
           class: "form-control" %>
       </div>

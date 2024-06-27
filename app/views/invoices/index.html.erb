@@ -29,7 +29,7 @@
         <td><%= invoice.finished_at.to_fs(:short) %></td>
         <td><%= invoice.additional_concept %></td>
         <td><%= number_to_currency invoice.aditional_amount %></td>
-        <td><%= invoice.payment_status %></td>
+        <td><%= invoice.payment_status_in_spanish %></td>
         <td><%= number_to_currency invoice.total_bill %></td>
         <td>
           <%= link_to "Ver Factura",
